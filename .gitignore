@@ -1,0 +1,5 @@
+secrets.env
+__pycache__/
+*.pyc
+check_log.txt
+결과_*.txt
