@@ -13,7 +13,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 
 import config as C
 import telegram_notify as TG
@@ -39,8 +39,16 @@ ZONE_ORDER = ["upper", "mid", "lower"]
 ZONE_TITLE = {"upper": "상단", "mid": "중단", "lower": "하단"}
 
 
+KST = timezone(timedelta(hours=9))
+
+
+def now_kst() -> datetime:
+    """GitHub Actions는 UTC로 돌아가므로, 사람이 보는 시각은 전부 KST로 맞춘다."""
+    return datetime.now(KST)
+
+
 def log(msg: str) -> None:
-    print(f"[{datetime.now():%H:%M:%S}] {msg}", flush=True)
+    print(f"[{now_kst():%H:%M:%S}] {msg}", flush=True)
 
 
 def proximities(close: float, upper: float, mid: float, lower: float,
@@ -96,7 +104,7 @@ def build_zone_message(zone: str, zone_buckets: dict[str, list[tuple[str, float,
     임계값이 구간×종류별로 좁게 잡혀 있어(config.PROXIMITY_PCT) 종목 수가 많지
     않으므로, 종류(COIN/KR/US)를 다시 한 메시지로 합쳐도 4096자 한도 안에 든다.
     """
-    ts = datetime.now().strftime("%Y-%m-%d %H:%M")
+    ts = now_kst().strftime("%Y-%m-%d %H:%M")
     block_lines = []
     for kind in KIND_ORDER:
         entries = zone_buckets[kind]
@@ -120,7 +128,7 @@ def touch_alert_text(kind: str, name: str, zone: str) -> str:
     """Coin_notification [2026-08-23 오전 11:44]
     BTC 볼린저밴드 하단터치(1W)"""
     category = "Coin" if kind == "coin" else "STOCK"
-    ts = format_kr_time(datetime.now())
+    ts = format_kr_time(now_kst())
     return f"{category}_notification [{ts}]\n{name} 볼린저밴드 {ZONE_TOUCH_LABEL[zone]}({C.BB_TIMEFRAME})"
 
 
