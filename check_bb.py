@@ -28,6 +28,7 @@ for _stream in (sys.stdout, sys.stderr):
 
 PIN_STATE_PATH = C.DATA_DIR / "pinned_message.json"
 TOUCH_STATE_PATH = C.DATA_DIR / "touch_alert_state.json"
+PRICE_STATE_PATH = C.DATA_DIR / "price_state.json"
 ZONE_TOUCH_LABEL = {"upper": "상단터치", "mid": "중단터치", "lower": "하단터치"}
 
 GROUP_MARKET = {"kospi200": "korea", "sp500": "america", "coin": "crypto"}
@@ -132,6 +133,28 @@ def touch_alert_text(kind: str, name: str, zone: str) -> str:
     return f"{category}_notification [{ts}]\n{name} 볼린저밴드 {ZONE_TOUCH_LABEL[zone]}({C.BB_TIMEFRAME})"
 
 
+def surge_alert_text(kind: str, name: str, pct: float) -> str:
+    """Coin_notification [2026-08-23 오전 11:44]
+    BTC 5분 급등 +12.3%"""
+    category = "Coin" if kind == "coin" else "STOCK"
+    ts = format_kr_time(now_kst())
+    label = "급등" if pct > 0 else "급락"
+    return f"{category}_notification [{ts}]\n{name} 5분 {label} {pct:+.1f}%"
+
+
+def load_price_state() -> dict[str, float]:
+    if PRICE_STATE_PATH.exists():
+        try:
+            return json.loads(PRICE_STATE_PATH.read_text(encoding="utf-8"))
+        except Exception:                                   # noqa: BLE001
+            return {}
+    return {}
+
+
+def save_price_state(prices: dict[str, float]) -> None:
+    PRICE_STATE_PATH.write_text(json.dumps(prices, ensure_ascii=False), encoding="utf-8")
+
+
 def load_touch_state() -> set[str]:
     if TOUCH_STATE_PATH.exists():
         try:
@@ -198,6 +221,7 @@ def run(refresh: bool = False) -> None:
     buckets = {z: {k: [] for k in KIND_ORDER} for z in ZONE_ORDER}
     coin_mcap = U.fetch_coin_market_caps()
     touch_info: dict[str, tuple[str, str, str]] = {}   # "티커|구간" → (kind, name, zone)
+    price_now: dict[str, tuple[str, str, float]] = {}  # 티커 → (kind, name, 현재가)
 
     by_group: dict[str, list[dict]] = {}
     for it in items:
@@ -215,10 +239,31 @@ def run(refresh: bool = False) -> None:
         for ticker, vals in bb.items():
             name = display_name(group, name_of.get(ticker, ticker))
             size = vals["mcap"] if vals["mcap"] is not None else coin_mcap.get(name, 0.0)
+            price_now[ticker] = (kind, name, vals["close"])
             for zone, pct in proximities(vals["close"], vals["upper"], vals["basis"],
                                          vals["lower"], kind_cat).items():
                 buckets[zone][kind].append((name, pct, size))
                 touch_info[f"{ticker}|{zone}"] = (kind, name, zone)
+
+    # 급등/급락 감지: 이번 체크 가격을 지난 체크(약 5분 전) 가격과 비교.
+    # 최초 실행은 비교 기준이 없으므로 가격만 저장하고 알림은 건너뛴다.
+    is_first_price_run = not PRICE_STATE_PATH.exists()
+    price_prev = load_price_state()
+    if is_first_price_run:
+        log(f"[급등락] 최초 실행 — 기준가 {len(price_now)}건 저장, 알림 생략")
+    else:
+        for ticker, (kind, name, close) in price_now.items():
+            prev = price_prev.get(ticker)
+            if not prev:
+                continue
+            pct = (close - prev) / prev * 100
+            if abs(pct) >= C.SURGE_PCT:
+                text = surge_alert_text(kind, name, pct)
+                if TG.send(text, parse_mode=None):
+                    log(f"[급등락] {text.replace(chr(10), ' ')}")
+                else:
+                    log(f"[급등락]  ! 전송 실패: {text.replace(chr(10), ' ')}")
+    save_price_state({t: c for t, (_, _, c) in price_now.items()})
 
     # 새로 근접권에 들어온 종목만 한 종목씩 개별 알림 (계속 머무는 동안은 반복 안 함).
     # 최초 실행(상태 파일이 아예 없음)은 지금 근접해 있는 것 전부가 "새로 진입"으로
