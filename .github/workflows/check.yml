@@ -53,10 +53,7 @@ jobs:
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
           pip install requests --quiet
-          python -c "
-import os, telegram_notify as TG
-TG.send_error_once('GitHub Actions 워크플로우', RuntimeError('실행 실패 — ' + os.environ['RUN_URL']))
-"
+          python notify_failure.py
           git config user.name "bb-alert-bot"
           git config user.email "bb-alert-bot@users.noreply.github.com"
           git add data/error_alert_state.json
