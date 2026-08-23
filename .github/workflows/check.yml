@@ -32,9 +32,33 @@ jobs:
         run: python check_bb.py
 
       - name: Commit updated state
+        if: always()
         run: |
           git config user.name "bb-alert-bot"
           git config user.email "bb-alert-bot@users.noreply.github.com"
           git add data/
           git diff --cached --quiet || git commit -m "state update [skip ci]"
           git push
+
+      # 위 단계 중 어디서든 실패하면(의존성 설치 실패, check_bb.py 자체가 못 뜨는
+      # 경우 등) 여기서 텔레그램으로 알린다. check_bb.py 내부 오류는 이미 그
+      # 안에서 send_error_once로 알리지만, 그 코드가 아예 실행되지 못하는
+      # 상황은 여기서만 잡을 수 있다. 같은 dedup 상태 파일을 재사용해서
+      # 반복 실패 시 스팸이 되지 않게 한다.
+      - name: Notify on workflow failure
+        if: failure()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          pip install requests --quiet
+          python -c "
+import os, telegram_notify as TG
+TG.send_error_once('GitHub Actions 워크플로우', RuntimeError('실행 실패 — ' + os.environ['RUN_URL']))
+"
+          git config user.name "bb-alert-bot"
+          git config user.email "bb-alert-bot@users.noreply.github.com"
+          git add data/error_alert_state.json
+          git diff --cached --quiet || git commit -m "error state update [skip ci]"
+          git push || true
