@@ -48,6 +48,13 @@ def now_kst() -> datetime:
     return datetime.now(KST)
 
 
+def trading_day_label(dt: datetime) -> str:
+    """KST 09:00:00 ~ 다음날 08:59:59를 하루로 묶는 날짜 라벨.
+    09시 이전이면 전날 날짜에 속한다(자정~08:59는 전날 거래일 연장으로 취급)."""
+    d = dt.date() if dt.hour >= 9 else dt.date() - timedelta(days=1)
+    return d.isoformat()
+
+
 def log(msg: str) -> None:
     print(f"[{now_kst():%H:%M:%S}] {msg}", flush=True)
 
@@ -88,18 +95,26 @@ def _pad(s: str, width: int) -> str:
     return s + " " * max(0, width - _vwidth(s))
 
 
-def _fmt_block(entries: list[tuple[str, float, float]]) -> list[str]:
-    """entries: [(이름, 괴리율%, 규모), ...] — 규모(시총) 내림차순 전부 표시.
+NEW_MARK = "🔴"
+NEW_MARK_BLANK = "  "  # 마커와 표시 너비(2칸)를 맞춰 정렬이 흐트러지지 않게 한다.
+
+
+def _fmt_block(entries: list[tuple[str, float, float, bool]]) -> list[str]:
+    """entries: [(이름, 괴리율%, 규모, 당일신규여부), ...] — 규모(시총) 내림차순 전부 표시.
     이름을 자르지 않고, 그 블록에서 가장 긴 이름 기준으로 폭을 맞춰 괴리율을
-    세로로 정렬한다(코드블록 안에 넣을 용도)."""
+    세로로 정렬한다(코드블록 안에 넣을 용도). 당일(거래일 기준) 새로 근접권에
+    들어온 종목은 이름 앞에 🔴를 붙인다(텔레그램 코드블록은 글자색을 지원하지
+    않아 색 대신 이모지로 표시)."""
     if not entries:
         return []
     entries = sorted(entries, key=lambda e: -e[2])
-    width = max(_vwidth(name) for name, _, _ in entries)
-    return [f"{_pad(name, width)} {pct:+6.1f}%" for name, pct, _ in entries]
+    labeled = [(f"{NEW_MARK if is_new else NEW_MARK_BLANK}{name}", pct)
+               for name, pct, _, is_new in entries]
+    width = max(_vwidth(name) for name, _ in labeled)
+    return [f"{_pad(name, width)} {pct:+6.1f}%" for name, pct in labeled]
 
 
-def build_zone_message(zone: str, zone_buckets: dict[str, list[tuple[str, float, float]]]) -> str:
+def build_zone_message(zone: str, zone_buckets: dict[str, list[tuple[str, float, float, bool]]]) -> str:
     """한 구간(상단/중단/하단) 전체의 코드블록 메시지. 종목은 전부 표시한다.
 
     임계값이 구간×종류별로 좁게 잡혀 있어(config.PROXIMITY_PCT) 종목 수가 많지
@@ -155,17 +170,26 @@ def save_price_state(prices: dict[str, float]) -> None:
     PRICE_STATE_PATH.write_text(json.dumps(prices, ensure_ascii=False), encoding="utf-8")
 
 
-def load_touch_state() -> set[str]:
+def load_touch_state() -> dict[str, str]:
+    """"티커|구간" → 마지막으로 알림을 보낸 거래일 라벨(trading_day_label)."""
     if TOUCH_STATE_PATH.exists():
         try:
-            return set(json.loads(TOUCH_STATE_PATH.read_text(encoding="utf-8")))
+            raw = json.loads(TOUCH_STATE_PATH.read_text(encoding="utf-8"))
         except Exception:                                   # noqa: BLE001
-            return set()
-    return set()
+            return {}
+        if isinstance(raw, list):
+            # 구 형식(현재 근접 종목 목록만 저장) 마이그레이션 — 배포 직후 재알림
+            # 폭주를 막기 위해 전부 "오늘 이미 알림 보냄"으로 간주한다.
+            return {key: trading_day_label(now_kst()) for key in raw}
+        return dict(raw)
+    return {}
 
 
-def save_touch_state(keys: set[str]) -> None:
-    TOUCH_STATE_PATH.write_text(json.dumps(sorted(keys), ensure_ascii=False), encoding="utf-8")
+def save_touch_state(state: dict[str, str], today: str) -> None:
+    """오늘·어제 라벨만 남기고 오래된 항목은 정리해 파일이 무한히 커지지 않게 한다."""
+    yesterday = (datetime.fromisoformat(today) - timedelta(days=1)).date().isoformat()
+    pruned = {k: v for k, v in state.items() if v in (today, yesterday)}
+    TOUCH_STATE_PATH.write_text(json.dumps(pruned, ensure_ascii=False, sort_keys=True), encoding="utf-8")
 
 
 def load_pin_state() -> dict:
@@ -242,7 +266,7 @@ def run(refresh: bool = False) -> None:
             price_now[ticker] = (kind, name, vals["close"])
             for zone, pct in proximities(vals["close"], vals["upper"], vals["basis"],
                                          vals["lower"], kind_cat).items():
-                buckets[zone][kind].append((name, pct, size))
+                buckets[zone][kind].append((ticker, name, pct, size))
                 touch_info[f"{ticker}|{zone}"] = (kind, name, zone)
 
     # 급등/급락 감지: 이번 체크 가격을 지난 체크(약 5분 전) 가격과 비교.
@@ -265,12 +289,17 @@ def run(refresh: bool = False) -> None:
                     log(f"[급등락]  ! 전송 실패: {text.replace(chr(10), ' ')}")
     save_price_state({t: c for t, (_, _, c) in price_now.items()})
 
-    # 새로 근접권에 들어온 종목만 한 종목씩 개별 알림 (계속 머무는 동안은 반복 안 함).
-    # 최초 실행(상태 파일이 아예 없음)은 지금 근접해 있는 것 전부가 "새로 진입"으로
-    # 잡혀 한꺼번에 쏟아지므로, 그때는 기준선만 저장하고 알림은 건너뛴다.
+    # 같은 종목×구간은 하루(KST 09:00~다음날 08:59:59)에 1번만 개별 알림.
+    # 그 안에서 근접권을 벗어났다 다시 들어와도 재알림하지 않는다(스팸 방지).
+    # 단, 같은 날 다른 구간(상/중/하단)에 닿으면 구간별로는 각각 알림이 온다.
+    # 최초 실행(상태 파일이 아예 없음)은 지금 근접해 있는 것 전부가 쏟아지므로,
+    # 그때는 기준선만 저장하고 알림은 건너뛴다.
     is_first_run = not TOUCH_STATE_PATH.exists()
     touch_prev = load_touch_state()
-    new_touches = set() if is_first_run else set(touch_info) - touch_prev
+    today = trading_day_label(now_kst())
+    new_touches = set() if is_first_run else {
+        key for key in touch_info if touch_prev.get(key) != today
+    }
     if is_first_run:
         log(f"[개별알림] 최초 실행 — 기준선 {len(touch_info)}건 저장, 알림 생략")
     for key in sorted(new_touches):
@@ -280,11 +309,25 @@ def run(refresh: bool = False) -> None:
             log(f"[개별알림] {text.replace(chr(10), ' ')}")
         else:
             log(f"[개별알림]  ! 전송 실패: {text.replace(chr(10), ' ')}")
-    save_touch_state(set(touch_info))
+    touch_prev.update({key: today for key in touch_info})
+    save_touch_state(touch_prev, today)
+
+    # 고정 대시보드용 "당일 신규 진입" 표시 — 개별 알림과 동일한 상태(touch_prev)를
+    # 기준으로 판단하므로, 하루 안에 근접권을 벗어났다 다시 들어와도 그날 안에는
+    # 계속 신규(🔴)로 표시된다. 최초 실행 때는 전부가 "신규"로 잡혀버리므로 표시하지 않는다.
+    new_today: set[str] = set() if is_first_run else {
+        key for key, label in touch_prev.items() if label == today
+    }
+    display_buckets = {
+        z: {k: [(name, pct, size, f"{ticker}|{z}" in new_today)
+                for ticker, name, pct, size in buckets[z][k]]
+            for k in KIND_ORDER}
+        for z in ZONE_ORDER
+    }
 
     state = load_pin_state()
     for zone in ZONE_ORDER:
-        text = build_zone_message(zone, buckets[zone])
+        text = build_zone_message(zone, display_buckets[zone])
         label = ZONE_TITLE[zone]
         log(f"[{label}] {text.replace(chr(10), ' | ')[:200]}")
         publish(zone, label, text, state)
