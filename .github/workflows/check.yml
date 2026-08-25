@@ -56,7 +56,12 @@ jobs:
             sleep 3
             git fetch origin main
             python merge_state.py
-            git reset --soft origin/main
+            # --soft는 인덱스를 갱신하지 않아, 이 실행의 체크아웃이 원격보다
+            # 뒤처진 코드 커밋을 물고 있었다면 그 스냅샷 그대로 재커밋되어
+            # 방금 배포된 코드 변경을 되돌려버리는 사고가 실제로 있었다.
+            # (기본값인) --mixed로 인덱스까지 원격에 맞춰 동기화한 뒤,
+            # data/만 다시 add해서 코드 파일은 원격 그대로 유지되게 한다.
+            git reset origin/main
             git add data/
             git diff --cached --quiet || git commit -m "state update [skip ci]"
           done
