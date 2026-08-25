@@ -256,8 +256,10 @@ def load_daily_history() -> dict[str, dict[str, float]]:
 
 
 def save_daily_history(hist: dict[str, dict[str, float]], today: str) -> None:
-    """3일 전 비교에 필요한 것보다 넉넉하게 최근 5일 라벨만 남기고 정리한다."""
-    cutoff = (datetime.fromisoformat(today) - timedelta(days=4)).date().isoformat()
+    """3일 전 비교에 필요한 것보다 넉넉하게 최근 8일 라벨만 남기고 정리한다.
+    3일 전이 주말이라 그 이전 거래일까지 거슬러 올라가는 경우(최대 주말 하나
+    분량)를 감안해 여유를 둔다."""
+    cutoff = (datetime.fromisoformat(today) - timedelta(days=7)).date().isoformat()
     pruned = {
         ticker: {d: v for d, v in days.items() if d >= cutoff}
         for ticker, days in hist.items()
@@ -375,14 +377,17 @@ def run(refresh: bool = False) -> None:
 
     # 최근 3일 등락률 배지(🔥/🧊) — 외부 히스토리 API 없이, 매 실행마다 오늘 자리에
     # 현재가를 계속 덮어쓰는 방식으로 우리가 직접 일별 종가 스냅샷을 쌓는다.
-    # 정확히 3일 전(거래일 라벨 기준) 스냅샷이 있는 종목만 판정 대상이 된다
-    # (봇을 새로 켠 지 3일이 안 됐거나, 그사이 감시 대상에서 빠졌던 종목은 제외).
+    # 정확히 3일 전 라벨이 없으면(주식은 주말·휴장일에 시세가 없음) 그 이전 중
+    # 가장 최근 거래일 값을 쓴다 — 휴장일엔 가격이 안 바뀌었다고 보는 것과 같다.
+    # 그마저 없는 종목(봇을 새로 켠 지 3일이 안 됐거나 감시 대상에 새로 편입)은
+    # 판정을 건너뛴다.
     daily_history = load_daily_history()
     three_day_label = (datetime.fromisoformat(today) - timedelta(days=3)).date().isoformat()
     hot_cold: dict[str, str] = {}
     for ticker, (_, _, close, _, _) in price_now.items():
         day_prices = daily_history.setdefault(ticker, {})
-        old = day_prices.get(three_day_label)
+        old = next((day_prices[d] for d in sorted(day_prices, reverse=True)
+                   if d <= three_day_label), None)
         if old:
             pct_3d = (close - old) / old * 100
             if pct_3d >= C.PCT_3D_FIRE:
