@@ -31,6 +31,7 @@ TOUCH_STATE_PATH = C.DATA_DIR / "touch_alert_state.json"
 PRICE_STATE_PATH = C.DATA_DIR / "price_state.json"
 PRESENCE_STATE_PATH = C.DATA_DIR / "zone_presence_state.json"
 NEW_MARK_STATE_PATH = C.DATA_DIR / "new_mark_state.json"
+DAILY_HISTORY_PATH = C.DATA_DIR / "daily_close_history.json"
 ZONE_TOUCH_LABEL = {"upper": "상단터치", "mid": "중단터치", "lower": "하단터치"}
 
 GROUP_MARKET = {"kospi200": "korea", "sp500": "america", "coin": "crypto"}
@@ -101,26 +102,32 @@ def _fmt_pct(pct: float) -> str:
     return f"{arrow} {abs(pct):5.1f}%"
 
 
-def _fmt_block(entries: list[tuple[str, float, float, bool]]) -> list[str]:
-    """entries: [(이름, 괴리율%, 규모, 당일신규여부), ...] — 근접도(0%에 가까운 순)로
-    정렬해 "지금 제일 급한 것"이 위로 오게 한다(규모는 더 이상 정렬 기준이 아님).
+def _fmt_block(entries: list[tuple[str, float, float, bool, str]]) -> list[str]:
+    """entries: [(이름, 괴리율%, 규모, 당일신규여부, 3일등락배지), ...] — 근접도
+    (0%에 가까운 순)로 정렬해 "지금 제일 급한 것"이 위로 오게 한다(규모는 더 이상
+    정렬 기준이 아님).
 
     괴리율을 이름 뒤가 아니라 **줄 맨 앞**에 둔다. 한글 종목명은 텔레그램 코드블록
     폰트에서 실제 렌더링 폭이 "영문 1글자의 2배"라는 가정과 안 맞아서(기기/폰트마다
     다름), 이름 길이에 맞춰 뒤쪽에 공백을 계산해 채우는 방식으로는 한글·영문이
     섞인 종목명(국내/미국 주식)에서 정렬이 계속 어긋났다. 괴리율을 앞에 두면 그
     값 자체는 순수 ASCII라 항상 정확히 맞고, 그 뒤에 오는 이름은 자유 텍스트라
-    정렬을 맞출 필요가 없어진다. 당일(거래일 기준) 새로 근접권에 들어온 종목은
-    줄 맨 끝에 🆕를 붙인다(텔레그램 코드블록은 글자색을 지원하지 않아 색 대신
-    이모지로 표시. 맨 끝이라 이름 길이와 무관하게 정렬에 영향 없음)."""
+    정렬을 맞출 필요가 없어진다. 당일(거래일 기준) 새로 근접권에 들어온 종목,
+    최근 3일 급등/급락한 종목은 줄 맨 끝에 배지(🆕/🔥/🧊)를 붙인다(텔레그램
+    코드블록은 글자색을 지원하지 않아 색 대신 이모지로 표시. 맨 끝이라 이름
+    길이와 무관하게 정렬에 영향 없음)."""
     if not entries:
         return []
     entries = sorted(entries, key=lambda e: abs(e[1]))
-    return [f"{_fmt_pct(pct)}  {name}{('  ' + NEW_MARK) if is_new else ''}"
-            for name, pct, _, is_new in entries]
+    lines = []
+    for name, pct, _, is_new, badge in entries:
+        marks = " ".join(m for m in (badge, NEW_MARK if is_new else "") if m)
+        suffix = f"  {marks}" if marks else ""
+        lines.append(f"{_fmt_pct(pct)}  {name}{suffix}")
+    return lines
 
 
-def build_zone_message(zone: str, zone_buckets: dict[str, list[tuple[str, float, float, bool]]]) -> str:
+def build_zone_message(zone: str, zone_buckets: dict[str, list[tuple[str, float, float, bool, str]]]) -> str:
     """한 구간(상단/중단/하단) 전체의 코드블록 메시지. 종목은 전부 표시한다.
 
     임계값이 구간×종류별로 좁게 잡혀 있어(config.PROXIMITY_PCT) 종목 수가 많지
@@ -133,7 +140,7 @@ def build_zone_message(zone: str, zone_buckets: dict[str, list[tuple[str, float,
     for kind in KIND_ORDER:
         entries = zone_buckets[kind]
         total_count += len(entries)
-        new_count += sum(1 for _, _, _, is_new in entries if is_new)
+        new_count += sum(1 for _, _, _, is_new, _ in entries if is_new)
         kind_cat = "coin" if kind == "coin" else "stock"
         threshold = C.PROXIMITY_PCT[zone][kind_cat]
         block_lines.append(f"[{KIND_LABEL[kind]} {len(entries)} · ±{threshold:g}%]")
@@ -235,6 +242,31 @@ def save_new_mark_state(state: dict[str, str], today: str) -> None:
     NEW_MARK_STATE_PATH.write_text(json.dumps(pruned, ensure_ascii=False, sort_keys=True), encoding="utf-8")
 
 
+def load_daily_history() -> dict[str, dict[str, float]]:
+    """티커 → {거래일 라벨: 그날 마지막으로 관측된 종가}. 3일 전 대비 등락률
+    배지(🔥/🧊) 판정에 쓴다 — 외부 히스토리 API 없이, 매 실행마다 오늘 자리에
+    현재가를 계속 덮어써서 우리가 직접 일별 스냅샷을 쌓는다."""
+    if DAILY_HISTORY_PATH.exists():
+        try:
+            raw = json.loads(DAILY_HISTORY_PATH.read_text(encoding="utf-8"))
+            return {ticker: dict(days) for ticker, days in raw.items()}
+        except Exception:                                   # noqa: BLE001
+            return {}
+    return {}
+
+
+def save_daily_history(hist: dict[str, dict[str, float]], today: str) -> None:
+    """3일 전 비교에 필요한 것보다 넉넉하게 최근 5일 라벨만 남기고 정리한다."""
+    cutoff = (datetime.fromisoformat(today) - timedelta(days=4)).date().isoformat()
+    pruned = {
+        ticker: {d: v for d, v in days.items() if d >= cutoff}
+        for ticker, days in hist.items()
+    }
+    pruned = {ticker: days for ticker, days in pruned.items() if days}
+    DAILY_HISTORY_PATH.write_text(json.dumps(pruned, ensure_ascii=False, sort_keys=True),
+                                  encoding="utf-8")
+
+
 def load_pin_state() -> dict:
     if PIN_STATE_PATH.exists():
         try:
@@ -313,6 +345,8 @@ def run(refresh: bool = False) -> None:
                 buckets[zone][kind].append((ticker, name, pct, size))
                 touch_info[f"{ticker}|{zone}"] = (kind, name, zone)
 
+    today = trading_day_label(now_kst())
+
     # 급등/급락 감지: 시작가·마감가만 비교하면 두 체크 사이(약 5분) 순간적으로
     # 튀었다가 되돌아온 움직임을 놓친다. 그래서 직전 체크 가격(price_prev, 앵커) 대비
     # 이번 5분봉의 고가·저가까지 함께 봐서, 그 구간 동안 한 번이라도 ±SURGE_PCT%
@@ -339,6 +373,25 @@ def run(refresh: bool = False) -> None:
                     log(f"[급등락]  ! 전송 실패: {text.replace(chr(10), ' ')}")
     save_price_state({t: c for t, (_, _, c, _, _) in price_now.items()})
 
+    # 최근 3일 등락률 배지(🔥/🧊) — 외부 히스토리 API 없이, 매 실행마다 오늘 자리에
+    # 현재가를 계속 덮어쓰는 방식으로 우리가 직접 일별 종가 스냅샷을 쌓는다.
+    # 정확히 3일 전(거래일 라벨 기준) 스냅샷이 있는 종목만 판정 대상이 된다
+    # (봇을 새로 켠 지 3일이 안 됐거나, 그사이 감시 대상에서 빠졌던 종목은 제외).
+    daily_history = load_daily_history()
+    three_day_label = (datetime.fromisoformat(today) - timedelta(days=3)).date().isoformat()
+    hot_cold: dict[str, str] = {}
+    for ticker, (_, _, close, _, _) in price_now.items():
+        day_prices = daily_history.setdefault(ticker, {})
+        old = day_prices.get(three_day_label)
+        if old:
+            pct_3d = (close - old) / old * 100
+            if pct_3d >= C.PCT_3D_FIRE:
+                hot_cold[ticker] = "🔥"
+            elif pct_3d <= C.PCT_3D_ICE:
+                hot_cold[ticker] = "🧊"
+        day_prices[today] = close
+    save_daily_history(daily_history, today)
+
     # 같은 종목×구간은 하루(KST 09:00~다음날 08:59:59)에 1번만 개별 알림.
     # 그 안에서 근접권을 벗어났다 다시 들어와도 재알림하지 않는다(스팸 방지).
     # 단, 같은 날 다른 구간(상/중/하단)에 닿으면 구간별로는 각각 알림이 온다.
@@ -346,7 +399,6 @@ def run(refresh: bool = False) -> None:
     # 그때는 기준선만 저장하고 알림은 건너뛴다.
     is_first_run = not TOUCH_STATE_PATH.exists()
     touch_prev = load_touch_state()
-    today = trading_day_label(now_kst())
     new_touches = set() if is_first_run else {
         key for key in touch_info if touch_prev.get(key) != today
     }
@@ -379,7 +431,7 @@ def run(refresh: bool = False) -> None:
 
     new_today: set[str] = {key for key in touch_info if new_mark_state.get(key) == today}
     display_buckets = {
-        z: {k: [(name, pct, size, f"{ticker}|{z}" in new_today)
+        z: {k: [(name, pct, size, f"{ticker}|{z}" in new_today, hot_cold.get(ticker, ""))
                 for ticker, name, pct, size in buckets[z][k]]
             for k in KIND_ORDER}
         for z in ZONE_ORDER
