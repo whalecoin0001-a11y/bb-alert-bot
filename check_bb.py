@@ -92,12 +92,13 @@ NEW_MARK = "🆕"
 
 
 def _fmt_pct(pct: float) -> str:
-    """+6.1f%는 전부 ASCII라 고정폭 정렬이 항상 딱 맞는다. 화살표는 장식으로 끝에
-    붙인다(▲▼ 자체의 실제 렌더링 너비는 신경 쓸 필요 없음 — 이 값 자체가 줄의
-    맨 앞에 오고 그 뒤로는 자유 텍스트인 이름만 있어서, 폭이 안 맞아도 다른 줄에
-    영향을 주지 않는다)."""
+    """화살표를 맨 앞에 두고 부호(+/-)는 생략한다 — 방향은 화살표가 이미 말해준다.
+    ▲/▼는 서로 거울상 글자라 어느 폰트에서든 폭이 동일하므로(한글처럼 폭 추정이
+    문제됐던 것과 달리) 맨 앞에 와도 숫자 정렬이 깨지지 않는다. 숫자·%는 ASCII라
+    고정폭이 항상 딱 맞고, 그 뒤에 오는 이름은 자유 텍스트라 정렬을 맞출 필요가
+    없다."""
     arrow = "▲" if pct >= 0 else "▼"
-    return f"{pct:+6.1f}%{arrow}"
+    return f"{arrow} {abs(pct):5.1f}%"
 
 
 def _fmt_block(entries: list[tuple[str, float, float, bool]]) -> list[str]:
@@ -110,12 +111,12 @@ def _fmt_block(entries: list[tuple[str, float, float, bool]]) -> list[str]:
     섞인 종목명(국내/미국 주식)에서 정렬이 계속 어긋났다. 괴리율을 앞에 두면 그
     값 자체는 순수 ASCII라 항상 정확히 맞고, 그 뒤에 오는 이름은 자유 텍스트라
     정렬을 맞출 필요가 없어진다. 당일(거래일 기준) 새로 근접권에 들어온 종목은
-    이름 앞에 🆕를 붙인다(텔레그램 코드블록은 글자색을 지원하지 않아 색 대신
-    이모지로 표시)."""
+    줄 맨 끝에 🆕를 붙인다(텔레그램 코드블록은 글자색을 지원하지 않아 색 대신
+    이모지로 표시. 맨 끝이라 이름 길이와 무관하게 정렬에 영향 없음)."""
     if not entries:
         return []
     entries = sorted(entries, key=lambda e: abs(e[1]))
-    return [f"{_fmt_pct(pct)}  {NEW_MARK if is_new else ''}{name}"
+    return [f"{_fmt_pct(pct)}  {name}{('  ' + NEW_MARK) if is_new else ''}"
             for name, pct, _, is_new in entries]
 
 
