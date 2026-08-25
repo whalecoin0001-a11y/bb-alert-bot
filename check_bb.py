@@ -102,13 +102,9 @@ NEW_MARK_BLANK = "  "  # 마커와 표시 너비(2칸)를 맞춰 정렬이 흐�
 
 
 def _fmt_pct(pct: float) -> str:
-    """숫자 부분(+6.1f%)은 전부 ASCII라 고정폭 정렬이 항상 딱 맞는다. 화살표를
-    앞에 붙이면 화살표 글자의 실제 렌더링 너비가 폰트/기기마다 달라(▲▼가 텔레그램
-    에서 정확히 monospace 1~2칸에 맞아떨어진다는 보장이 없다) 그 뒤로 오는 숫자가
-    줄마다 밀려 정렬이 깨진다. 그래서 화살표는 줄 맨 끝에 장식으로만 붙인다 —
-    그러면 그 글자의 너비가 어떻든 다른 줄의 숫자 정렬에 영향을 주지 않는다."""
+    """방향을 +/- 대신 화살표로 표시해 눈으로 더 빨리 스캔되게 한다."""
     arrow = "▲" if pct >= 0 else "▼"
-    return f"{pct:+6.1f}%{arrow}"
+    return f"{arrow}{abs(pct):5.1f}%"
 
 
 def _fmt_block(entries: list[tuple[str, float, float, bool]]) -> list[str]:
