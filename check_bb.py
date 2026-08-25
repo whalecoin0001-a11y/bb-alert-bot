@@ -95,7 +95,7 @@ def _pad(s: str, width: int) -> str:
     return s + " " * max(0, width - _vwidth(s))
 
 
-NEW_MARK = "🔴"
+NEW_MARK = "🆕"
 NEW_MARK_BLANK = "  "  # 마커와 표시 너비(2칸)를 맞춰 정렬이 흐트러지지 않게 한다.
 
 
@@ -110,7 +110,7 @@ def _fmt_block(entries: list[tuple[str, float, float, bool]]) -> list[str]:
     정렬해 "지금 제일 급한 것"이 위로 오게 한다(규모는 더 이상 정렬 기준이 아님).
     이름을 자르지 않고, 그 블록에서 가장 긴 이름 기준으로 폭을 맞춰 괴리율을
     세로로 정렬한다(코드블록 안에 넣을 용도). 당일(거래일 기준) 새로 근접권에
-    들어온 종목은 이름 앞에 🔴를 붙인다(텔레그램 코드블록은 글자색을 지원하지
+    들어온 종목은 이름 앞에 🆕를 붙인다(텔레그램 코드블록은 글자색을 지원하지
     않아 색 대신 이모지로 표시)."""
     if not entries:
         return []
