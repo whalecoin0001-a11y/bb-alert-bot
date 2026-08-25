@@ -9,7 +9,11 @@ on:
 
 concurrency:
   group: bb-alert-check
-  cancel-in-progress: false
+  # 백업 크론과 GitHub 자체 스케줄이 몇십 초 차이로 겹치면 큐잉이 완벽히 막아주지
+  # 못하는 경우가 있었다(실제로 두 실행이 동시에 돌아 중복 알림이 나감). 새 실행이
+  # 들어오면 먼저 돌던 걸 바로 취소해서, 알림을 보내기 전(체크 로직 완료 전) 단계에서
+  # 겹침을 끊어낼 확률을 높인다.
+  cancel-in-progress: true
 
 permissions:
   contents: write
@@ -41,14 +45,17 @@ jobs:
           git add data/
           git diff --cached --quiet || git commit -m "state update [skip ci]"
           # 백업 크론(bb-alert-cron 토큰)과 GitHub 자체 스케줄이 초 단위로 겹치면
-          # 서로 push를 가로챌 수 있다. data/*.json은 그때그때 계산된 스냅샷이라
-          # 병합할 의미가 없으므로, 실패 시 원격 최신 위에 우리 데이터로 다시
-          # 커밋해서 재시도한다(rebase 충돌 없이 항상 우리 값으로 덮어씀).
+          # 서로 push를 가로챌 수 있다. 대부분의 data/*.json은 그때그때 계산된
+          # 스냅샷이라 덮어써도 무방하지만, touch_alert_state.json/new_mark_state.json
+          # (종목×구간 → "오늘 이미 처리함" 기록)은 그냥 덮어쓰면 상대방이 방금
+          # 기록한 항목을 지워버려 나중에 중복 알림으로 이어진다 — merge_state.py로
+          # 원격과 병합(합집합 + 최신 라벨 우선)한 뒤 재시도한다.
           for i in 1 2 3 4 5; do
             git push && exit 0
             echo "push 실패(다른 실행과 충돌), 재시도 $i/5…"
             sleep 3
             git fetch origin main
+            python merge_state.py
             git reset --soft origin/main
             git add data/
             git diff --cached --quiet || git commit -m "state update [skip ci]"
