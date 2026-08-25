@@ -88,25 +88,14 @@ def display_name(group: str, name: str) -> str:
     return name
 
 
-def _vwidth(s: str) -> int:
-    """한글 등 non-ASCII 문자는 고정폭 글꼴에서 2칸을 차지한다고 보고 계산한 표시 너비."""
-    return sum(2 if ord(c) > 0x2000 else 1 for c in s)
-
-
-def _pad(s: str, width: int) -> str:
-    return s + " " * max(0, width - _vwidth(s))
-
-
 NEW_MARK = "🆕"
-NEW_MARK_BLANK = "  "  # 마커와 표시 너비(2칸)를 맞춰 정렬이 흐트러지지 않게 한다.
 
 
 def _fmt_pct(pct: float) -> str:
-    """숫자 부분(+6.1f%)은 전부 ASCII라 고정폭 정렬이 항상 딱 맞는다. 화살표를
-    앞에 붙이면 화살표 글자의 실제 렌더링 너비가 폰트/기기마다 달라(▲▼가 텔레그램
-    에서 정확히 monospace 1~2칸에 맞아떨어진다는 보장이 없다) 그 뒤로 오는 숫자가
-    줄마다 밀려 정렬이 깨진다. 그래서 화살표는 줄 맨 끝에 장식으로만 붙인다 —
-    그러면 그 글자의 너비가 어떻든 다른 줄의 숫자 정렬에 영향을 주지 않는다."""
+    """+6.1f%는 전부 ASCII라 고정폭 정렬이 항상 딱 맞는다. 화살표는 장식으로 끝에
+    붙인다(▲▼ 자체의 실제 렌더링 너비는 신경 쓸 필요 없음 — 이 값 자체가 줄의
+    맨 앞에 오고 그 뒤로는 자유 텍스트인 이름만 있어서, 폭이 안 맞아도 다른 줄에
+    영향을 주지 않는다)."""
     arrow = "▲" if pct >= 0 else "▼"
     return f"{pct:+6.1f}%{arrow}"
 
@@ -114,17 +103,20 @@ def _fmt_pct(pct: float) -> str:
 def _fmt_block(entries: list[tuple[str, float, float, bool]]) -> list[str]:
     """entries: [(이름, 괴리율%, 규모, 당일신규여부), ...] — 근접도(0%에 가까운 순)로
     정렬해 "지금 제일 급한 것"이 위로 오게 한다(규모는 더 이상 정렬 기준이 아님).
-    이름을 자르지 않고, 그 블록에서 가장 긴 이름 기준으로 폭을 맞춰 괴리율을
-    세로로 정렬한다(코드블록 안에 넣을 용도). 당일(거래일 기준) 새로 근접권에
-    들어온 종목은 이름 앞에 🆕를 붙인다(텔레그램 코드블록은 글자색을 지원하지
-    않아 색 대신 이모지로 표시)."""
+
+    괴리율을 이름 뒤가 아니라 **줄 맨 앞**에 둔다. 한글 종목명은 텔레그램 코드블록
+    폰트에서 실제 렌더링 폭이 "영문 1글자의 2배"라는 가정과 안 맞아서(기기/폰트마다
+    다름), 이름 길이에 맞춰 뒤쪽에 공백을 계산해 채우는 방식으로는 한글·영문이
+    섞인 종목명(국내/미국 주식)에서 정렬이 계속 어긋났다. 괴리율을 앞에 두면 그
+    값 자체는 순수 ASCII라 항상 정확히 맞고, 그 뒤에 오는 이름은 자유 텍스트라
+    정렬을 맞출 필요가 없어진다. 당일(거래일 기준) 새로 근접권에 들어온 종목은
+    이름 앞에 🆕를 붙인다(텔레그램 코드블록은 글자색을 지원하지 않아 색 대신
+    이모지로 표시)."""
     if not entries:
         return []
     entries = sorted(entries, key=lambda e: abs(e[1]))
-    labeled = [(f"{NEW_MARK if is_new else NEW_MARK_BLANK}{name}", pct)
-               for name, pct, _, is_new in entries]
-    width = max(_vwidth(name) for name, _ in labeled)
-    return [f"{_pad(name, width)} {_fmt_pct(pct)}" for name, pct in labeled]
+    return [f"{_fmt_pct(pct)}  {NEW_MARK if is_new else ''}{name}"
+            for name, pct, _, is_new in entries]
 
 
 def build_zone_message(zone: str, zone_buckets: dict[str, list[tuple[str, float, float, bool]]]) -> str:
