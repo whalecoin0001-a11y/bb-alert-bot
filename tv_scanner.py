@@ -20,7 +20,7 @@ _SESSION = requests.Session()
 _SESSION.headers.update({"User-Agent": "Mozilla/5.0"})
 
 COLUMNS = ["close", f"BB.upper|{C.BB_TIMEFRAME}", f"BB.lower|{C.BB_TIMEFRAME}",
-          f"BB.basis|{C.BB_TIMEFRAME}", "market_cap_basic"]
+          f"BB.basis|{C.BB_TIMEFRAME}", "market_cap_basic", "high|5", "low|5"]
 
 
 def _chunks(seq: list, n: int):
@@ -32,8 +32,10 @@ def fetch_bb(tickers: list[str], market: str) -> dict[str, dict]:
     """티커 목록(예: ["KRX:005930", ...])의 주봉 볼린저밴드를 받아온다.
 
     market: "korea" | "america" | "crypto" (스캐너 엔드포인트 경로)
-    반환: {ticker: {"close":.., "upper":.., "lower":.., "basis":..}}
-    실패한 티커는 결과에서 빠진다(호출자가 이전 값을 유지하면 됨).
+    반환: {ticker: {"close":.., "upper":.., "lower":.., "basis":.., "high5":.., "low5":..}}
+    high5/low5는 직전 5분봉의 고가/저가 — 두 체크 사이(약 5분) 순간적으로
+    급등락했다가 되돌아온 경우도 잡기 위한 것(급등락 판정은 close 하나만 보면
+    놓친다). 실패한 티커는 결과에서 빠진다(호출자가 이전 값을 유지하면 됨).
     """
     out: dict[str, dict] = {}
     for chunk in _chunks(tickers, C.TV_CHUNK_SIZE):
@@ -43,12 +45,14 @@ def fetch_bb(tickers: list[str], market: str) -> dict[str, dict]:
                               timeout=C.REQUEST_TIMEOUT)
             r.raise_for_status()
             for row in r.json().get("data", []):
-                close, upper, lower, basis, mcap = row["d"]
+                close, upper, lower, basis, mcap, high5, low5 = row["d"]
                 if close is None or upper is None or lower is None:
                     continue
                 out[row["s"]] = {"close": float(close), "upper": float(upper),
                                  "lower": float(lower), "basis": float(basis),
-                                 "mcap": float(mcap) if mcap is not None else None}
+                                 "mcap": float(mcap) if mcap is not None else None,
+                                 "high5": float(high5) if high5 is not None else None,
+                                 "low5": float(low5) if low5 is not None else None}
         except Exception as e:                            # noqa: BLE001
             print(f"  ! 스캐너 요청 실패({market}, {len(chunk)}개): {e}")
         time.sleep(C.TV_REQUEST_DELAY)

@@ -291,7 +291,8 @@ def run(refresh: bool = False) -> None:
     buckets = {z: {k: [] for k in KIND_ORDER} for z in ZONE_ORDER}
     coin_mcap = U.fetch_coin_market_caps()
     touch_info: dict[str, tuple[str, str, str]] = {}   # "티커|구간" → (kind, name, zone)
-    price_now: dict[str, tuple[str, str, float]] = {}  # 티커 → (kind, name, 현재가)
+    price_now: dict[str, tuple[str, str, float, float | None, float | None]] = {}
+    # 티커 → (kind, name, 현재가, 직전 5분봉 고가, 직전 5분봉 저가)
 
     by_group: dict[str, list[dict]] = {}
     for it in items:
@@ -309,31 +310,37 @@ def run(refresh: bool = False) -> None:
         for ticker, vals in bb.items():
             name = display_name(group, name_of.get(ticker, ticker))
             size = vals["mcap"] if vals["mcap"] is not None else coin_mcap.get(name, 0.0)
-            price_now[ticker] = (kind, name, vals["close"])
+            price_now[ticker] = (kind, name, vals["close"], vals["high5"], vals["low5"])
             for zone, pct in proximities(vals["close"], vals["upper"], vals["basis"],
                                          vals["lower"], kind_cat).items():
                 buckets[zone][kind].append((ticker, name, pct, size))
                 touch_info[f"{ticker}|{zone}"] = (kind, name, zone)
 
-    # 급등/급락 감지: 이번 체크 가격을 지난 체크(약 5분 전) 가격과 비교.
-    # 최초 실행은 비교 기준이 없으므로 가격만 저장하고 알림은 건너뛴다.
+    # 급등/급락 감지: 시작가·마감가만 비교하면 두 체크 사이(약 5분) 순간적으로
+    # 튀었다가 되돌아온 움직임을 놓친다. 그래서 직전 체크 가격(price_prev, 앵커) 대비
+    # 이번 5분봉의 고가·저가까지 함께 봐서, 그 구간 동안 한 번이라도 ±SURGE_PCT%
+    # 이상 벌어졌으면 잡는다. 최초 실행은 비교 기준이 없으므로 가격만 저장하고
+    # 알림은 건너뛴다.
     is_first_price_run = not PRICE_STATE_PATH.exists()
     price_prev = load_price_state()
     if is_first_price_run:
         log(f"[급등락] 최초 실행 — 기준가 {len(price_now)}건 저장, 알림 생략")
     else:
-        for ticker, (kind, name, close) in price_now.items():
+        for ticker, (kind, name, close, high5, low5) in price_now.items():
             prev = price_prev.get(ticker)
             if not prev:
                 continue
-            pct = (close - prev) / prev * 100
+            candidates = [v for v in (high5, low5) if v is not None]
+            if not candidates:
+                candidates = [close]
+            pct = max(((v - prev) / prev * 100 for v in candidates), key=abs)
             if abs(pct) >= C.SURGE_PCT:
                 text = surge_alert_text(kind, name, pct)
                 if TG.send(text, parse_mode=None):
                     log(f"[급등락] {text.replace(chr(10), ' ')}")
                 else:
                     log(f"[급등락]  ! 전송 실패: {text.replace(chr(10), ' ')}")
-    save_price_state({t: c for t, (_, _, c) in price_now.items()})
+    save_price_state({t: c for t, (_, _, c, _, _) in price_now.items()})
 
     # 같은 종목×구간은 하루(KST 09:00~다음날 08:59:59)에 1번만 개별 알림.
     # 그 안에서 근접권을 벗어났다 다시 들어와도 재알림하지 않는다(스팸 방지).
