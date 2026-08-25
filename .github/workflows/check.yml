@@ -40,6 +40,19 @@ jobs:
           git config user.email "bb-alert-bot@users.noreply.github.com"
           git add data/
           git diff --cached --quiet || git commit -m "state update [skip ci]"
+          # 백업 크론(bb-alert-cron 토큰)과 GitHub 자체 스케줄이 초 단위로 겹치면
+          # 서로 push를 가로챌 수 있다. data/*.json은 그때그때 계산된 스냅샷이라
+          # 병합할 의미가 없으므로, 실패 시 원격 최신 위에 우리 데이터로 다시
+          # 커밋해서 재시도한다(rebase 충돌 없이 항상 우리 값으로 덮어씀).
+          for i in 1 2 3 4 5; do
+            git push && exit 0
+            echo "push 실패(다른 실행과 충돌), 재시도 $i/5…"
+            sleep 3
+            git fetch origin main
+            git reset --soft origin/main
+            git add data/
+            git diff --cached --quiet || git commit -m "state update [skip ci]"
+          done
           git push
 
       # 위 단계 중 어디서든 실패하면(의존성 설치 실패, check_bb.py 자체가 못 뜨는
