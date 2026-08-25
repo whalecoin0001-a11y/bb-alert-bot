@@ -29,6 +29,8 @@ for _stream in (sys.stdout, sys.stderr):
 PIN_STATE_PATH = C.DATA_DIR / "pinned_message.json"
 TOUCH_STATE_PATH = C.DATA_DIR / "touch_alert_state.json"
 PRICE_STATE_PATH = C.DATA_DIR / "price_state.json"
+PRESENCE_STATE_PATH = C.DATA_DIR / "zone_presence_state.json"
+NEW_MARK_STATE_PATH = C.DATA_DIR / "new_mark_state.json"
 ZONE_TOUCH_LABEL = {"upper": "상단터치", "mid": "중단터치", "lower": "하단터치"}
 
 GROUP_MARKET = {"kospi200": "korea", "sp500": "america", "coin": "crypto"}
@@ -204,6 +206,38 @@ def save_touch_state(state: dict[str, str], today: str) -> None:
     TOUCH_STATE_PATH.write_text(json.dumps(pruned, ensure_ascii=False, sort_keys=True), encoding="utf-8")
 
 
+def load_presence_state() -> set[str]:
+    """지난 실행(약 5분 전)에 근접권에 있던 "티커|구간" 집합 — 대시보드 🆕 표시가
+    "진짜 방금 들어온 것"만 잡도록, 개별 알림용 하루 단위 상태와는 별개로 둔다."""
+    if PRESENCE_STATE_PATH.exists():
+        try:
+            return set(json.loads(PRESENCE_STATE_PATH.read_text(encoding="utf-8")))
+        except Exception:                                   # noqa: BLE001
+            return set()
+    return set()
+
+
+def save_presence_state(keys: set[str]) -> None:
+    PRESENCE_STATE_PATH.write_text(json.dumps(sorted(keys), ensure_ascii=False), encoding="utf-8")
+
+
+def load_new_mark_state() -> dict[str, str]:
+    """"티커|구간" → 🆕로 표시하기 시작한 거래일 라벨. 그날 안에는 벗어났다 다시
+    들어와도 계속 🆕로 유지되고, 거래일이 바뀌면 자연히 사라진다."""
+    if NEW_MARK_STATE_PATH.exists():
+        try:
+            return dict(json.loads(NEW_MARK_STATE_PATH.read_text(encoding="utf-8")))
+        except Exception:                                   # noqa: BLE001
+            return {}
+    return {}
+
+
+def save_new_mark_state(state: dict[str, str], today: str) -> None:
+    yesterday = (datetime.fromisoformat(today) - timedelta(days=1)).date().isoformat()
+    pruned = {k: v for k, v in state.items() if v in (today, yesterday)}
+    NEW_MARK_STATE_PATH.write_text(json.dumps(pruned, ensure_ascii=False, sort_keys=True), encoding="utf-8")
+
+
 def load_pin_state() -> dict:
     if PIN_STATE_PATH.exists():
         try:
@@ -324,12 +358,22 @@ def run(refresh: bool = False) -> None:
     touch_prev.update({key: today for key in touch_info})
     save_touch_state(touch_prev, today)
 
-    # 고정 대시보드용 "당일 신규 진입" 표시 — 개별 알림과 동일한 상태(touch_prev)를
-    # 기준으로 판단하므로, 하루 안에 근접권을 벗어났다 다시 들어와도 그날 안에는
-    # 계속 신규(🔴)로 표시된다. 최초 실행 때는 전부가 "신규"로 잡혀버리므로 표시하지 않는다.
-    new_today: set[str] = set() if is_first_run else {
-        key for key, label in touch_prev.items() if label == today
-    }
+    # 고정 대시보드용 "당일 신규 진입" 표시 — 개별 알림 dedup(위 touch_prev, 하루에
+    # 한 번은 계속 있어도 리셋됨)과는 별개로, "지난 실행에는 없었는데 지금 생겼다"는
+    # 진짜 진입 이벤트만 🆕로 잡는다. 그래야 원래부터 계속 근접해 있던 종목이 단순히
+    # 날짜가 바뀌었다는 이유만으로 🆕로 잘못 표시되지 않는다. 같은 거래일 안에서
+    # 벗어났다 다시 들어오면 그 시점에 다시 진입 이벤트로 잡혀 하루 내내 🆕 유지.
+    is_first_presence_run = not PRESENCE_STATE_PATH.exists()
+    presence_prev = load_presence_state()
+    new_mark_state = load_new_mark_state()
+    entered_now = set() if is_first_presence_run else set(touch_info) - presence_prev
+    new_mark_state.update({key: today for key in entered_now})
+    save_new_mark_state(new_mark_state, today)
+    save_presence_state(set(touch_info))
+    if is_first_presence_run:
+        log(f"[신규표시] 최초 실행 — 기준선 {len(touch_info)}건 저장, 🆕 표시 생략")
+
+    new_today: set[str] = {key for key in touch_info if new_mark_state.get(key) == today}
     display_buckets = {
         z: {k: [(name, pct, size, f"{ticker}|{z}" in new_today)
                 for ticker, name, pct, size in buckets[z][k]]
