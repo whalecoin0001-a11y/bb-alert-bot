@@ -99,19 +99,26 @@ NEW_MARK = "🔴"
 NEW_MARK_BLANK = "  "  # 마커와 표시 너비(2칸)를 맞춰 정렬이 흐트러지지 않게 한다.
 
 
+def _fmt_pct(pct: float) -> str:
+    """방향을 +/- 대신 화살표로 표시해 눈으로 더 빨리 스캔되게 한다."""
+    arrow = "▲" if pct >= 0 else "▼"
+    return f"{arrow}{abs(pct):5.1f}%"
+
+
 def _fmt_block(entries: list[tuple[str, float, float, bool]]) -> list[str]:
-    """entries: [(이름, 괴리율%, 규모, 당일신규여부), ...] — 규모(시총) 내림차순 전부 표시.
+    """entries: [(이름, 괴리율%, 규모, 당일신규여부), ...] — 근접도(0%에 가까운 순)로
+    정렬해 "지금 제일 급한 것"이 위로 오게 한다(규모는 더 이상 정렬 기준이 아님).
     이름을 자르지 않고, 그 블록에서 가장 긴 이름 기준으로 폭을 맞춰 괴리율을
     세로로 정렬한다(코드블록 안에 넣을 용도). 당일(거래일 기준) 새로 근접권에
     들어온 종목은 이름 앞에 🔴를 붙인다(텔레그램 코드블록은 글자색을 지원하지
     않아 색 대신 이모지로 표시)."""
     if not entries:
         return []
-    entries = sorted(entries, key=lambda e: -e[2])
+    entries = sorted(entries, key=lambda e: abs(e[1]))
     labeled = [(f"{NEW_MARK if is_new else NEW_MARK_BLANK}{name}", pct)
                for name, pct, _, is_new in entries]
     width = max(_vwidth(name) for name, _ in labeled)
-    return [f"{_pad(name, width)} {pct:+6.1f}%" for name, pct in labeled]
+    return [f"{_pad(name, width)} {_fmt_pct(pct)}" for name, pct in labeled]
 
 
 def build_zone_message(zone: str, zone_buckets: dict[str, list[tuple[str, float, float, bool]]]) -> str:
@@ -122,14 +129,19 @@ def build_zone_message(zone: str, zone_buckets: dict[str, list[tuple[str, float,
     """
     ts = now_kst().strftime("%Y-%m-%d %H:%M")
     block_lines = []
+    total_count = 0
+    new_count = 0
     for kind in KIND_ORDER:
         entries = zone_buckets[kind]
+        total_count += len(entries)
+        new_count += sum(1 for _, _, _, is_new in entries if is_new)
         kind_cat = "coin" if kind == "coin" else "stock"
         threshold = C.PROXIMITY_PCT[zone][kind_cat]
         block_lines.append(f"[{KIND_LABEL[kind]} {len(entries)} · ±{threshold:g}%]")
         block_lines += (_fmt_block(entries) if entries else ["  -"])
         block_lines.append("")
-    header = [f"볼린저밴드 {ZONE_TITLE[zone]} 근접", f"{ts} 기준 · 시총순", ""]
+    header = [f"볼린저밴드 {ZONE_TITLE[zone]} 근접", f"{ts} 기준 · 근접도순",
+              f"오늘 신규 {new_count}건 · 총 근접 {total_count}건", ""]
     code = "\n".join(header + block_lines).rstrip()
     return f"```\n{code}\n```"
 
@@ -149,12 +161,12 @@ def touch_alert_text(kind: str, name: str, zone: str) -> str:
 
 
 def surge_alert_text(kind: str, name: str, pct: float) -> str:
-    """Coin_notification [2026-08-23 오전 11:44]
+    """🚨🚨🚨 Coin_notification [2026-08-23 오전 11:44]
     BTC 5분 급등 +12.3%"""
     category = "Coin" if kind == "coin" else "STOCK"
     ts = format_kr_time(now_kst())
     label = "급등" if pct > 0 else "급락"
-    return f"{category}_notification [{ts}]\n{name} 5분 {label} {pct:+.1f}%"
+    return f"🚨🚨🚨 {category}_notification [{ts}]\n{name} 5분 {label} {pct:+.1f}%"
 
 
 def load_price_state() -> dict[str, float]:
