@@ -20,36 +20,52 @@ import sys
 from pathlib import Path
 
 DATA_DIR = Path(__file__).resolve().parent / "data"
-MERGE_FILES = ["touch_alert_state.json", "new_mark_state.json"]
+FLAT_MERGE_FILES = ["touch_alert_state.json", "new_mark_state.json"]
+# 티커 → {날짜: 종가} 형태라 값이 아니라 날짜 키 자체를 합집합해야 한다(같은
+# 날짜값 충돌은 어느 쪽이든 관측치 차이가 미미해 로컬을 우선한다). 이걸 빼먹으면
+# 오늘 겪은 것과 같은 방식으로 히스토리 날짜가 통째로 유실된다.
+NESTED_MERGE_FILES = ["daily_close_history.json"]
 
 
-def _read_local(path: Path) -> dict[str, str]:
+def _read_json(path: Path) -> dict:
     if not path.exists():
         return {}
     try:
-        return dict(json.loads(path.read_text(encoding="utf-8")))
+        return json.loads(path.read_text(encoding="utf-8"))
     except Exception:                                       # noqa: BLE001
         return {}
 
 
-def _read_remote(rel_path: str) -> dict[str, str]:
+def _read_remote(rel_path: str) -> dict:
     try:
         out = subprocess.run(["git", "show", f"origin/main:{rel_path}"],
                              capture_output=True, text=True, check=True)
-        return dict(json.loads(out.stdout))
+        return json.loads(out.stdout)
     except Exception:                                       # noqa: BLE001
         return {}
 
 
 def main() -> None:
-    for name in MERGE_FILES:
+    for name in FLAT_MERGE_FILES:
         local_path = DATA_DIR / name
-        local = _read_local(local_path)
+        local = _read_json(local_path)
         remote = _read_remote(f"data/{name}")
         merged = dict(local)
         for key, remote_label in remote.items():
             if key not in merged or remote_label > merged[key]:
                 merged[key] = remote_label
+        local_path.write_text(json.dumps(merged, ensure_ascii=False, sort_keys=True),
+                              encoding="utf-8")
+        print(f"[merge_state] {name}: local={len(local)} remote={len(remote)} "
+              f"-> merged={len(merged)}", flush=True)
+
+    for name in NESTED_MERGE_FILES:
+        local_path = DATA_DIR / name
+        local = _read_json(local_path)
+        remote = _read_remote(f"data/{name}")
+        merged = {t: dict(days) for t, days in remote.items()}
+        for ticker, days in local.items():
+            merged.setdefault(ticker, {}).update(days)
         local_path.write_text(json.dumps(merged, ensure_ascii=False, sort_keys=True),
                               encoding="utf-8")
         print(f"[merge_state] {name}: local={len(local)} remote={len(remote)} "
