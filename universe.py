@@ -153,31 +153,6 @@ def fetch_all_perpetuals() -> list[dict]:
     return [{"ticker": f"BINANCE:{s}.P", "name": s, "group": "coin"} for s in syms]
 
 
-def fetch_coin_market_caps() -> dict[str, float]:
-    """코인마켓캡 시가총액(코인 심볼 → USD). 트레이딩뷰는 크립토 시총을 안 주므로
-    여기서 받아 정렬에 쓴다. 같은 심볼을 여러 코인이 쓰면 시총이 더 큰(먼저 나오는)
-    쪽을 채택한다(내림차순 정렬된 목록이므로 first-wins).
-    """
-    log("코인마켓캡 시가총액 조회…")
-    out: dict[str, float] = {}
-    try:
-        r = _SESSION.get("https://api.coinmarketcap.com/data-api/v3/cryptocurrency/listing",
-                         params={"start": 1, "limit": 5000, "sortBy": "market_cap",
-                                 "sortType": "desc", "convert": "USD",
-                                 "cryptoType": "all", "tagType": "all", "audited": "false"},
-                         timeout=C.REQUEST_TIMEOUT)
-        r.raise_for_status()
-        for c in r.json()["data"]["cryptoCurrencyList"]:
-            sym = c["symbol"].upper()
-            if sym not in out:
-                out[sym] = float(c["quotes"][0]["marketCap"] or 0)
-    except Exception as e:                                # noqa: BLE001
-        log(f"  ! 시가총액 조회 실패: {e}")
-        return {}
-    log(f"  → {len(out)}개 코인 시가총액 확보")
-    return out
-
-
 # ---------------------------------------------------------------- 캐시 오케스트레이션
 def build_universe(force: bool = False) -> list[dict]:
     if not force and CACHE_PATH.exists():

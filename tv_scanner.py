@@ -20,7 +20,7 @@ _SESSION = requests.Session()
 _SESSION.headers.update({"User-Agent": "Mozilla/5.0"})
 
 COLUMNS = ["close", f"BB.upper|{C.BB_TIMEFRAME}", f"BB.lower|{C.BB_TIMEFRAME}",
-          f"BB.basis|{C.BB_TIMEFRAME}", "market_cap_basic", "high|5", "low|5"]
+          f"BB.basis|{C.BB_TIMEFRAME}", "high|5", "low|5"]
 
 
 def _chunks(seq: list, n: int):
@@ -38,24 +38,25 @@ def fetch_bb(tickers: list[str], market: str) -> dict[str, dict]:
     놓친다). 실패한 티커는 결과에서 빠진다(호출자가 이전 값을 유지하면 됨).
     """
     out: dict[str, dict] = {}
-    for chunk in _chunks(tickers, C.TV_CHUNK_SIZE):
+    chunks = list(_chunks(tickers, C.TV_CHUNK_SIZE))
+    for i, chunk in enumerate(chunks):
         body = {"symbols": {"tickers": chunk, "query": {"types": []}}, "columns": COLUMNS}
         try:
             r = _SESSION.post(SCAN_URL.format(market=market), json=body,
                               timeout=C.REQUEST_TIMEOUT)
             r.raise_for_status()
             for row in r.json().get("data", []):
-                close, upper, lower, basis, mcap, high5, low5 = row["d"]
+                close, upper, lower, basis, high5, low5 = row["d"]
                 if close is None or upper is None or lower is None:
                     continue
                 out[row["s"]] = {"close": float(close), "upper": float(upper),
                                  "lower": float(lower), "basis": float(basis),
-                                 "mcap": float(mcap) if mcap is not None else None,
                                  "high5": float(high5) if high5 is not None else None,
                                  "low5": float(low5) if low5 is not None else None}
         except Exception as e:                            # noqa: BLE001
             print(f"  ! 스캐너 요청 실패({market}, {len(chunk)}개): {e}")
-        time.sleep(C.TV_REQUEST_DELAY)
+        if i < len(chunks) - 1:          # 마지막 청크 뒤엔 기다릴 이유가 없다
+            time.sleep(C.TV_REQUEST_DELAY)
     return out
 
 

@@ -102,10 +102,9 @@ def _fmt_pct(pct: float) -> str:
     return f"{arrow} {abs(pct):5.1f}%"
 
 
-def _fmt_block(entries: list[tuple[str, float, float, bool, str]]) -> list[str]:
-    """entries: [(이름, 괴리율%, 규모, 당일신규여부, 3일등락배지), ...] — 근접도
-    (0%에 가까운 순)로 정렬해 "지금 제일 급한 것"이 위로 오게 한다(규모는 더 이상
-    정렬 기준이 아님).
+def _fmt_block(entries: list[tuple[str, float, bool, str]]) -> list[str]:
+    """entries: [(이름, 괴리율%, 당일신규여부, 3일등락배지), ...] — 근접도
+    (0%에 가까운 순)로 정렬해 "지금 제일 급한 것"이 위로 오게 한다.
 
     괴리율을 이름 뒤가 아니라 **줄 맨 앞**에 둔다. 한글 종목명은 텔레그램 코드블록
     폰트에서 실제 렌더링 폭이 "영문 1글자의 2배"라는 가정과 안 맞아서(기기/폰트마다
@@ -120,14 +119,14 @@ def _fmt_block(entries: list[tuple[str, float, float, bool, str]]) -> list[str]:
         return []
     entries = sorted(entries, key=lambda e: abs(e[1]))
     lines = []
-    for name, pct, _, is_new, badge in entries:
+    for name, pct, is_new, badge in entries:
         marks = " ".join(m for m in (badge, NEW_MARK if is_new else "") if m)
         suffix = f"  {marks}" if marks else ""
         lines.append(f"{_fmt_pct(pct)}  {name}{suffix}")
     return lines
 
 
-def build_zone_message(zone: str, zone_buckets: dict[str, list[tuple[str, float, float, bool, str]]]) -> str:
+def build_zone_message(zone: str, zone_buckets: dict[str, list[tuple[str, float, bool, str]]]) -> str:
     """한 구간(상단/중단/하단) 전체의 코드블록 메시지. 종목은 전부 표시한다.
 
     임계값이 구간×종류별로 좁게 잡혀 있어(config.PROXIMITY_PCT) 종목 수가 많지
@@ -140,7 +139,7 @@ def build_zone_message(zone: str, zone_buckets: dict[str, list[tuple[str, float,
     for kind in KIND_ORDER:
         entries = zone_buckets[kind]
         total_count += len(entries)
-        new_count += sum(1 for _, _, _, is_new, _ in entries if is_new)
+        new_count += sum(1 for _, _, is_new, _ in entries if is_new)
         kind_cat = "coin" if kind == "coin" else "stock"
         threshold = C.PROXIMITY_PCT[zone][kind_cat]
         block_lines.append(f"[{KIND_LABEL[kind]} {len(entries)} · ±{threshold:g}%]")
@@ -175,84 +174,74 @@ def surge_alert_text(kind: str, name: str, pct: float) -> str:
     return f"🚨🚨🚨 {category}_notification [{ts}]\n{name} 5분 {label} {pct:+.1f}%"
 
 
-def load_price_state() -> dict[str, float]:
-    if PRICE_STATE_PATH.exists():
+def _read_json(path, default):
+    """상태 파일 공용 로더 — 없거나 깨졌으면 default를 그대로 돌려준다."""
+    if path.exists():
         try:
-            return json.loads(PRICE_STATE_PATH.read_text(encoding="utf-8"))
+            return json.loads(path.read_text(encoding="utf-8"))
         except Exception:                                   # noqa: BLE001
-            return {}
-    return {}
+            return default
+    return default
+
+
+def _write_json(path, obj, **kwargs) -> None:
+    path.write_text(json.dumps(obj, ensure_ascii=False, **kwargs), encoding="utf-8")
+
+
+def _prune_daily(state: dict[str, str], today: str) -> dict[str, str]:
+    """오늘·어제 라벨만 남기고 정리 — 파일이 무한히 커지지 않게 한다."""
+    yesterday = (datetime.fromisoformat(today) - timedelta(days=1)).date().isoformat()
+    return {k: v for k, v in state.items() if v in (today, yesterday)}
+
+
+def load_price_state() -> dict[str, float]:
+    return _read_json(PRICE_STATE_PATH, {})
 
 
 def save_price_state(prices: dict[str, float]) -> None:
-    PRICE_STATE_PATH.write_text(json.dumps(prices, ensure_ascii=False), encoding="utf-8")
+    _write_json(PRICE_STATE_PATH, prices)
 
 
 def load_touch_state() -> dict[str, str]:
     """"티커|구간" → 마지막으로 알림을 보낸 거래일 라벨(trading_day_label)."""
-    if TOUCH_STATE_PATH.exists():
-        try:
-            raw = json.loads(TOUCH_STATE_PATH.read_text(encoding="utf-8"))
-        except Exception:                                   # noqa: BLE001
-            return {}
-        if isinstance(raw, list):
-            # 구 형식(현재 근접 종목 목록만 저장) 마이그레이션 — 배포 직후 재알림
-            # 폭주를 막기 위해 전부 "오늘 이미 알림 보냄"으로 간주한다.
-            return {key: trading_day_label(now_kst()) for key in raw}
-        return dict(raw)
-    return {}
+    raw = _read_json(TOUCH_STATE_PATH, {})
+    if isinstance(raw, list):
+        # 구 형식(현재 근접 종목 목록만 저장) 마이그레이션 — 배포 직후 재알림
+        # 폭주를 막기 위해 전부 "오늘 이미 알림 보냄"으로 간주한다.
+        return {key: trading_day_label(now_kst()) for key in raw}
+    return dict(raw)
 
 
 def save_touch_state(state: dict[str, str], today: str) -> None:
-    """오늘·어제 라벨만 남기고 오래된 항목은 정리해 파일이 무한히 커지지 않게 한다."""
-    yesterday = (datetime.fromisoformat(today) - timedelta(days=1)).date().isoformat()
-    pruned = {k: v for k, v in state.items() if v in (today, yesterday)}
-    TOUCH_STATE_PATH.write_text(json.dumps(pruned, ensure_ascii=False, sort_keys=True), encoding="utf-8")
+    _write_json(TOUCH_STATE_PATH, _prune_daily(state, today), sort_keys=True)
 
 
 def load_presence_state() -> set[str]:
     """지난 실행(약 5분 전)에 근접권에 있던 "티커|구간" 집합 — 대시보드 🆕 표시가
     "진짜 방금 들어온 것"만 잡도록, 개별 알림용 하루 단위 상태와는 별개로 둔다."""
-    if PRESENCE_STATE_PATH.exists():
-        try:
-            return set(json.loads(PRESENCE_STATE_PATH.read_text(encoding="utf-8")))
-        except Exception:                                   # noqa: BLE001
-            return set()
-    return set()
+    return set(_read_json(PRESENCE_STATE_PATH, []))
 
 
 def save_presence_state(keys: set[str]) -> None:
-    PRESENCE_STATE_PATH.write_text(json.dumps(sorted(keys), ensure_ascii=False), encoding="utf-8")
+    _write_json(PRESENCE_STATE_PATH, sorted(keys))
 
 
 def load_new_mark_state() -> dict[str, str]:
     """"티커|구간" → 🆕로 표시하기 시작한 거래일 라벨. 그날 안에는 벗어났다 다시
     들어와도 계속 🆕로 유지되고, 거래일이 바뀌면 자연히 사라진다."""
-    if NEW_MARK_STATE_PATH.exists():
-        try:
-            return dict(json.loads(NEW_MARK_STATE_PATH.read_text(encoding="utf-8")))
-        except Exception:                                   # noqa: BLE001
-            return {}
-    return {}
+    return dict(_read_json(NEW_MARK_STATE_PATH, {}))
 
 
 def save_new_mark_state(state: dict[str, str], today: str) -> None:
-    yesterday = (datetime.fromisoformat(today) - timedelta(days=1)).date().isoformat()
-    pruned = {k: v for k, v in state.items() if v in (today, yesterday)}
-    NEW_MARK_STATE_PATH.write_text(json.dumps(pruned, ensure_ascii=False, sort_keys=True), encoding="utf-8")
+    _write_json(NEW_MARK_STATE_PATH, _prune_daily(state, today), sort_keys=True)
 
 
 def load_daily_history() -> dict[str, dict[str, float]]:
     """티커 → {거래일 라벨: 그날 마지막으로 관측된 종가}. 3일 전 대비 등락률
     배지(🔥/🧊) 판정에 쓴다 — 외부 히스토리 API 없이, 매 실행마다 오늘 자리에
     현재가를 계속 덮어써서 우리가 직접 일별 스냅샷을 쌓는다."""
-    if DAILY_HISTORY_PATH.exists():
-        try:
-            raw = json.loads(DAILY_HISTORY_PATH.read_text(encoding="utf-8"))
-            return {ticker: dict(days) for ticker, days in raw.items()}
-        except Exception:                                   # noqa: BLE001
-            return {}
-    return {}
+    raw = _read_json(DAILY_HISTORY_PATH, {})
+    return {ticker: dict(days) for ticker, days in raw.items()}
 
 
 def save_daily_history(hist: dict[str, dict[str, float]], today: str) -> None:
@@ -265,21 +254,15 @@ def save_daily_history(hist: dict[str, dict[str, float]], today: str) -> None:
         for ticker, days in hist.items()
     }
     pruned = {ticker: days for ticker, days in pruned.items() if days}
-    DAILY_HISTORY_PATH.write_text(json.dumps(pruned, ensure_ascii=False, sort_keys=True),
-                                  encoding="utf-8")
+    _write_json(DAILY_HISTORY_PATH, pruned, sort_keys=True)
 
 
 def load_pin_state() -> dict:
-    if PIN_STATE_PATH.exists():
-        try:
-            return json.loads(PIN_STATE_PATH.read_text(encoding="utf-8"))
-        except Exception:                                   # noqa: BLE001
-            return {}
-    return {}
+    return _read_json(PIN_STATE_PATH, {})
 
 
 def save_pin_state(state: dict) -> None:
-    PIN_STATE_PATH.write_text(json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8")
+    _write_json(PIN_STATE_PATH, state, indent=2)
 
 
 def publish(key: str, label: str, text: str, state: dict) -> None:
@@ -320,7 +303,6 @@ def publish(key: str, label: str, text: str, state: dict) -> None:
 def run(refresh: bool = False) -> None:
     items = U.build_universe(force=refresh)
     buckets = {z: {k: [] for k in KIND_ORDER} for z in ZONE_ORDER}
-    coin_mcap = U.fetch_coin_market_caps()
     touch_info: dict[str, tuple[str, str, str]] = {}   # "티커|구간" → (kind, name, zone)
     price_now: dict[str, tuple[str, str, float, float | None, float | None]] = {}
     # 티커 → (kind, name, 현재가, 직전 5분봉 고가, 직전 5분봉 저가)
@@ -340,11 +322,10 @@ def run(refresh: bool = False) -> None:
         kind_cat = "coin" if kind == "coin" else "stock"
         for ticker, vals in bb.items():
             name = display_name(group, name_of.get(ticker, ticker))
-            size = vals["mcap"] if vals["mcap"] is not None else coin_mcap.get(name, 0.0)
             price_now[ticker] = (kind, name, vals["close"], vals["high5"], vals["low5"])
             for zone, pct in proximities(vals["close"], vals["upper"], vals["basis"],
                                          vals["lower"], kind_cat).items():
-                buckets[zone][kind].append((ticker, name, pct, size))
+                buckets[zone][kind].append((ticker, name, pct))
                 touch_info[f"{ticker}|{zone}"] = (kind, name, zone)
 
     today = trading_day_label(now_kst())
@@ -436,8 +417,8 @@ def run(refresh: bool = False) -> None:
 
     new_today: set[str] = {key for key in touch_info if new_mark_state.get(key) == today}
     display_buckets = {
-        z: {k: [(name, pct, size, f"{ticker}|{z}" in new_today, hot_cold.get(ticker, ""))
-                for ticker, name, pct, size in buckets[z][k]]
+        z: {k: [(name, pct, f"{ticker}|{z}" in new_today, hot_cold.get(ticker, ""))
+                for ticker, name, pct in buckets[z][k]]
             for k in KIND_ORDER}
         for z in ZONE_ORDER
     }
