@@ -66,13 +66,6 @@ def pin_message(message_id: int) -> bool:
                                     "disable_notification": True}) is not None
 
 
-def unpin_message(message_id: int) -> bool:
-    if not C.TELEGRAM_CHAT_ID:
-        return False
-    return _call("unpinChatMessage", {"chat_id": C.TELEGRAM_CHAT_ID,
-                                      "message_id": message_id}) is not None
-
-
 def send_error_once(context: str, exc: BaseException) -> None:
     """같은 오류가 반복되는 동안은 1회만 알린다(스팸 방지)."""
     key = f"{context}:{type(exc).__name__}:{exc}"

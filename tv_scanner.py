@@ -8,6 +8,7 @@
 from __future__ import annotations
 
 import time
+from itertools import batched
 
 import requests
 
@@ -23,11 +24,6 @@ COLUMNS = ["close", f"BB.upper|{C.BB_TIMEFRAME}", f"BB.lower|{C.BB_TIMEFRAME}",
           f"BB.basis|{C.BB_TIMEFRAME}", "high|5", "low|5"]
 
 
-def _chunks(seq: list, n: int):
-    for i in range(0, len(seq), n):
-        yield seq[i:i + n]
-
-
 def fetch_bb(tickers: list[str], market: str) -> dict[str, dict]:
     """티커 목록(예: ["KRX:005930", ...])의 주봉 볼린저밴드를 받아온다.
 
@@ -38,7 +34,7 @@ def fetch_bb(tickers: list[str], market: str) -> dict[str, dict]:
     놓친다). 실패한 티커는 결과에서 빠진다(호출자가 이전 값을 유지하면 됨).
     """
     out: dict[str, dict] = {}
-    chunks = list(_chunks(tickers, C.TV_CHUNK_SIZE))
+    chunks = list(batched(tickers, C.TV_CHUNK_SIZE))
     for i, chunk in enumerate(chunks):
         body = {"symbols": {"tickers": chunk, "query": {"types": []}}, "columns": COLUMNS}
         try:

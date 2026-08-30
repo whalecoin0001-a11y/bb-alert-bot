@@ -7,7 +7,6 @@ config.UNIVERSE_CACHE_DAYS 이내면 재사용한다.
 from __future__ import annotations
 
 import io
-import json
 import re
 import time
 from datetime import datetime, timedelta
@@ -18,6 +17,7 @@ import requests
 
 import config as C
 import tv_scanner as TV
+from state_io import read_json, write_json
 
 _SESSION = requests.Session()
 _SESSION.headers.update({"User-Agent": "Mozilla/5.0"})
@@ -91,12 +91,8 @@ def fetch_sp500() -> list[dict]:
     orig_symbols = table["Symbol"].tolist()                      # 점 표기(BRK.B) 원본
     tv_symbols = table["Symbol"].str.replace(".", "-", regex=False)  # 트레이딩뷰용(BRK-B)
 
-    tv_cache: dict[str, str] = {}
-    if US_SYMBOL_CACHE_PATH.exists():
-        tv_cache = json.loads(US_SYMBOL_CACHE_PATH.read_text(encoding="utf-8"))
-    kr_cache: dict[str, str] = {}
-    if KR_NAME_CACHE_PATH.exists():
-        kr_cache = json.loads(KR_NAME_CACHE_PATH.read_text(encoding="utf-8"))
+    tv_cache: dict[str, str] = read_json(US_SYMBOL_CACHE_PATH, {})
+    kr_cache: dict[str, str] = read_json(KR_NAME_CACHE_PATH, {})
 
     out = []
     new_tv, new_kr = 0, 0
@@ -121,11 +117,9 @@ def fetch_sp500() -> list[dict]:
         out.append({"ticker": ticker, "name": kr_name or eng_name, "group": "sp500"})
 
     if new_tv:
-        US_SYMBOL_CACHE_PATH.write_text(json.dumps(tv_cache, ensure_ascii=False, indent=2),
-                                        encoding="utf-8")
+        write_json(US_SYMBOL_CACHE_PATH, tv_cache, indent=2)
     if new_kr:
-        KR_NAME_CACHE_PATH.write_text(json.dumps(kr_cache, ensure_ascii=False, indent=2),
-                                      encoding="utf-8")
+        write_json(KR_NAME_CACHE_PATH, kr_cache, indent=2)
     log(f"  → {len(out)}종목 (신규 거래소 조회 {new_tv}건, 신규 한글명 조회 {new_kr}건)")
     return out
 
@@ -155,8 +149,8 @@ def fetch_all_perpetuals() -> list[dict]:
 
 # ---------------------------------------------------------------- 캐시 오케스트레이션
 def build_universe(force: bool = False) -> list[dict]:
-    if not force and CACHE_PATH.exists():
-        cached = json.loads(CACHE_PATH.read_text(encoding="utf-8"))
+    cached = read_json(CACHE_PATH, None)
+    if not force and cached:
         age = datetime.now() - datetime.fromisoformat(cached["built_at"])
         if age < timedelta(days=C.UNIVERSE_CACHE_DAYS):
             return cached["items"]
@@ -168,9 +162,7 @@ def build_universe(force: bool = False) -> list[dict]:
         items += fetch_sp500()
     items += fetch_all_perpetuals()
 
-    CACHE_PATH.write_text(json.dumps(
-        {"built_at": datetime.now().isoformat(), "items": items},
-        ensure_ascii=False, indent=2), encoding="utf-8")
+    write_json(CACHE_PATH, {"built_at": datetime.now().isoformat(), "items": items}, indent=2)
     log(f"감시 종목 총 {len(items)}개 저장 → {CACHE_PATH.name}")
     return items
 

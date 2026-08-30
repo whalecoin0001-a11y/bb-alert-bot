@@ -11,7 +11,6 @@
 from __future__ import annotations
 
 import argparse
-import json
 import sys
 from datetime import datetime, timedelta, timezone
 
@@ -19,6 +18,7 @@ import config as C
 import telegram_notify as TG
 import tv_scanner as TV
 import universe as U
+from state_io import read_json, write_json
 
 for _stream in (sys.stdout, sys.stderr):
     try:
@@ -34,9 +34,11 @@ NEW_MARK_STATE_PATH = C.DATA_DIR / "new_mark_state.json"
 DAILY_HISTORY_PATH = C.DATA_DIR / "daily_close_history.json"
 ZONE_TOUCH_LABEL = {"upper": "상단터치", "mid": "중단터치", "lower": "하단터치"}
 
-GROUP_MARKET = {"kospi200": "korea", "sp500": "america", "coin": "crypto"}
-GROUP_LABEL = {"kospi200": "코스피200", "sp500": "S&P500", "coin": "코인"}
-GROUP_KIND = {"kospi200": "kr", "sp500": "us", "coin": "coin"}
+GROUPS = {
+    "kospi200": {"market": "korea", "label": "코스피200", "kind": "kr"},
+    "sp500":    {"market": "america", "label": "S&P500", "kind": "us"},
+    "coin":     {"market": "crypto", "label": "코인", "kind": "coin"},
+}
 KIND_ORDER = ["coin", "kr", "us"]
 KIND_LABEL = {"kr": "KR", "us": "US", "coin": "COIN"}
 ZONE_ORDER = ["upper", "mid", "lower"]
@@ -174,20 +176,6 @@ def surge_alert_text(kind: str, name: str, pct: float) -> str:
     return f"🚨🚨🚨 {category}_notification [{ts}]\n{name} 5분 {label} {pct:+.1f}%"
 
 
-def _read_json(path, default):
-    """상태 파일 공용 로더 — 없거나 깨졌으면 default를 그대로 돌려준다."""
-    if path.exists():
-        try:
-            return json.loads(path.read_text(encoding="utf-8"))
-        except Exception:                                   # noqa: BLE001
-            return default
-    return default
-
-
-def _write_json(path, obj, **kwargs) -> None:
-    path.write_text(json.dumps(obj, ensure_ascii=False, **kwargs), encoding="utf-8")
-
-
 def _prune_daily(state: dict[str, str], today: str) -> dict[str, str]:
     """오늘·어제 라벨만 남기고 정리 — 파일이 무한히 커지지 않게 한다."""
     yesterday = (datetime.fromisoformat(today) - timedelta(days=1)).date().isoformat()
@@ -195,16 +183,16 @@ def _prune_daily(state: dict[str, str], today: str) -> dict[str, str]:
 
 
 def load_price_state() -> dict[str, float]:
-    return _read_json(PRICE_STATE_PATH, {})
+    return read_json(PRICE_STATE_PATH, {})
 
 
 def save_price_state(prices: dict[str, float]) -> None:
-    _write_json(PRICE_STATE_PATH, prices)
+    write_json(PRICE_STATE_PATH, prices)
 
 
 def load_touch_state() -> dict[str, str]:
     """"티커|구간" → 마지막으로 알림을 보낸 거래일 라벨(trading_day_label)."""
-    raw = _read_json(TOUCH_STATE_PATH, {})
+    raw = read_json(TOUCH_STATE_PATH, {})
     if isinstance(raw, list):
         # 구 형식(현재 근접 종목 목록만 저장) 마이그레이션 — 배포 직후 재알림
         # 폭주를 막기 위해 전부 "오늘 이미 알림 보냄"으로 간주한다.
@@ -213,34 +201,34 @@ def load_touch_state() -> dict[str, str]:
 
 
 def save_touch_state(state: dict[str, str], today: str) -> None:
-    _write_json(TOUCH_STATE_PATH, _prune_daily(state, today), sort_keys=True)
+    write_json(TOUCH_STATE_PATH, _prune_daily(state, today), sort_keys=True)
 
 
 def load_presence_state() -> set[str]:
     """지난 실행(약 5분 전)에 근접권에 있던 "티커|구간" 집합 — 대시보드 🆕 표시가
     "진짜 방금 들어온 것"만 잡도록, 개별 알림용 하루 단위 상태와는 별개로 둔다."""
-    return set(_read_json(PRESENCE_STATE_PATH, []))
+    return set(read_json(PRESENCE_STATE_PATH, []))
 
 
 def save_presence_state(keys: set[str]) -> None:
-    _write_json(PRESENCE_STATE_PATH, sorted(keys))
+    write_json(PRESENCE_STATE_PATH, sorted(keys))
 
 
 def load_new_mark_state() -> dict[str, str]:
     """"티커|구간" → 🆕로 표시하기 시작한 거래일 라벨. 그날 안에는 벗어났다 다시
     들어와도 계속 🆕로 유지되고, 거래일이 바뀌면 자연히 사라진다."""
-    return dict(_read_json(NEW_MARK_STATE_PATH, {}))
+    return dict(read_json(NEW_MARK_STATE_PATH, {}))
 
 
 def save_new_mark_state(state: dict[str, str], today: str) -> None:
-    _write_json(NEW_MARK_STATE_PATH, _prune_daily(state, today), sort_keys=True)
+    write_json(NEW_MARK_STATE_PATH, _prune_daily(state, today), sort_keys=True)
 
 
 def load_daily_history() -> dict[str, dict[str, float]]:
     """티커 → {거래일 라벨: 그날 마지막으로 관측된 종가}. 3일 전 대비 등락률
     배지(🔥/🧊) 판정에 쓴다 — 외부 히스토리 API 없이, 매 실행마다 오늘 자리에
     현재가를 계속 덮어써서 우리가 직접 일별 스냅샷을 쌓는다."""
-    raw = _read_json(DAILY_HISTORY_PATH, {})
+    raw = read_json(DAILY_HISTORY_PATH, {})
     return {ticker: dict(days) for ticker, days in raw.items()}
 
 
@@ -254,15 +242,15 @@ def save_daily_history(hist: dict[str, dict[str, float]], today: str) -> None:
         for ticker, days in hist.items()
     }
     pruned = {ticker: days for ticker, days in pruned.items() if days}
-    _write_json(DAILY_HISTORY_PATH, pruned, sort_keys=True)
+    write_json(DAILY_HISTORY_PATH, pruned, sort_keys=True)
 
 
 def load_pin_state() -> dict:
-    return _read_json(PIN_STATE_PATH, {})
+    return read_json(PIN_STATE_PATH, {})
 
 
 def save_pin_state(state: dict) -> None:
-    _write_json(PIN_STATE_PATH, state, indent=2)
+    write_json(PIN_STATE_PATH, state, indent=2)
 
 
 def publish(key: str, label: str, text: str, state: dict) -> None:
@@ -312,13 +300,14 @@ def run(refresh: bool = False) -> None:
         by_group.setdefault(it["group"], []).append(it)
 
     for group, group_items in by_group.items():
-        market = GROUP_MARKET[group]
+        market = GROUPS[group]["market"]
         tickers = [it["ticker"] for it in group_items]
         name_of = {it["ticker"]: it["name"] for it in group_items}
-        log(f"{GROUP_LABEL[group]} {len(tickers)}종목 조회 중…")
+        label = GROUPS[group]["label"]
+        log(f"{label} {len(tickers)}종목 조회 중…")
         bb = TV.fetch_bb(tickers, market)
 
-        kind = GROUP_KIND[group]
+        kind = GROUPS[group]["kind"]
         kind_cat = "coin" if kind == "coin" else "stock"
         for ticker, vals in bb.items():
             name = display_name(group, name_of.get(ticker, ticker))
