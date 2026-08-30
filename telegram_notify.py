@@ -3,12 +3,12 @@
 from __future__ import annotations
 
 import html
-import json
 import traceback
 
 import requests
 
 import config as C
+from state_io import read_json, write_json
 
 _ERROR_STATE_PATH = C.DATA_DIR / "error_alert_state.json"
 
@@ -69,21 +69,13 @@ def pin_message(message_id: int) -> bool:
 def send_error_once(context: str, exc: BaseException) -> None:
     """같은 오류가 반복되는 동안은 1회만 알린다(스팸 방지)."""
     key = f"{context}:{type(exc).__name__}:{exc}"
-    prev_key = None
-    if _ERROR_STATE_PATH.exists():
-        try:
-            prev_key = json.loads(_ERROR_STATE_PATH.read_text(encoding="utf-8")).get("key")
-        except Exception:                                  # noqa: BLE001
-            pass
+    prev_key = read_json(_ERROR_STATE_PATH, {}).get("key")
     if prev_key == key:
         return
     tb = html.escape("".join(traceback.format_exception(type(exc), exc, exc.__traceback__))[-1500:])
     send(f"🚨 <b>BB알림봇 오류</b>\n\n위치: {context}\n"
          f"{html.escape(type(exc).__name__)}: {html.escape(str(exc))}\n\n<pre>{tb}</pre>")
-    try:
-        _ERROR_STATE_PATH.write_text(json.dumps({"key": key}), encoding="utf-8")
-    except Exception:                                       # noqa: BLE001
-        pass
+    write_json(_ERROR_STATE_PATH, {"key": key})
 
 
 def clear_error_state() -> None:

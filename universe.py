@@ -149,11 +149,12 @@ def fetch_all_perpetuals() -> list[dict]:
 
 # ---------------------------------------------------------------- 캐시 오케스트레이션
 def build_universe(force: bool = False) -> list[dict]:
-    cached = read_json(CACHE_PATH, None)
-    if not force and cached:
-        age = datetime.now() - datetime.fromisoformat(cached["built_at"])
-        if age < timedelta(days=C.UNIVERSE_CACHE_DAYS):
-            return cached["items"]
+    if not force:
+        cached = read_json(CACHE_PATH, None)
+        if cached:
+            age = datetime.now() - datetime.fromisoformat(cached["built_at"])
+            if age < timedelta(days=C.UNIVERSE_CACHE_DAYS):
+                return cached["items"]
 
     items: list[dict] = []
     if C.INCLUDE_KOSPI200:

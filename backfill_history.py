@@ -17,6 +17,7 @@ check_bb.py는 매 실행마다 오늘 종가를 스스로 기록하는 방식�
 """
 from __future__ import annotations
 
+import json
 import re
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timedelta, timezone
@@ -24,7 +25,7 @@ from datetime import datetime, timedelta, timezone
 import requests
 
 import config as C
-from state_io import read_json, write_json
+from state_io import write_json
 
 KST = timezone(timedelta(hours=9))
 _SESSION = requests.Session()
@@ -99,10 +100,17 @@ def fetch_us(ticker: str) -> dict[str, float]:
 
 
 def main() -> None:
-    universe = read_json(UNIVERSE_PATH, {"items": []})["items"]
+    # 1회성 수동 스크립트라 상태 파일이 없거나 깨진 경우 조용히 넘어가지 않고
+    # 바로 실패한다 — 전제(universe 캐시가 미리 만들어져 있어야 함)가 안 맞으면
+    # 사람이 그 자리에서 알아채야 한다(check_bb.py의 상시 자동 실행과는 다른 요구).
+    if not UNIVERSE_PATH.exists():
+        raise FileNotFoundError(f"{UNIVERSE_PATH} 없음 — 먼저 check_bb.py를 한 번 실행해 종목 캐시를 만드세요.")
+    universe = json.loads(UNIVERSE_PATH.read_text(encoding="utf-8"))["items"]
     fetchers = {"kospi200": fetch_kr, "sp500": fetch_us, "coin": fetch_coin}
 
-    history: dict[str, dict[str, float]] = read_json(HISTORY_PATH, {})
+    history: dict[str, dict[str, float]] = {}
+    if HISTORY_PATH.exists():
+        history = json.loads(HISTORY_PATH.read_text(encoding="utf-8"))
 
     def work(item):
         fn = fetchers[item["group"]]

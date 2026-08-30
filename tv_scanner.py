@@ -34,8 +34,10 @@ def fetch_bb(tickers: list[str], market: str) -> dict[str, dict]:
     놓친다). 실패한 티커는 결과에서 빠진다(호출자가 이전 값을 유지하면 됨).
     """
     out: dict[str, dict] = {}
-    chunks = list(batched(tickers, C.TV_CHUNK_SIZE))
-    for i, chunk in enumerate(chunks):
+    # 매 청크(마지막 포함) 뒤에 쉰다 — run()이 이 함수를 시장군(코스피200→S&P500→
+    # 코인)별로 연달아 호출하므로, 여기서 마지막 청크 뒤 sleep을 생략하면 그
+    # 텀이 다음 시장군의 첫 요청 앞으로 그대로 옮겨져 결국 쉬지 않는 셈이 된다.
+    for chunk in batched(tickers, C.TV_CHUNK_SIZE):
         body = {"symbols": {"tickers": chunk, "query": {"types": []}}, "columns": COLUMNS}
         try:
             r = _SESSION.post(SCAN_URL.format(market=market), json=body,
@@ -51,8 +53,7 @@ def fetch_bb(tickers: list[str], market: str) -> dict[str, dict]:
                                  "low5": float(low5) if low5 is not None else None}
         except Exception as e:                            # noqa: BLE001
             print(f"  ! 스캐너 요청 실패({market}, {len(chunk)}개): {e}")
-        if i < len(chunks) - 1:          # 마지막 청크 뒤엔 기다릴 이유가 없다
-            time.sleep(C.TV_REQUEST_DELAY)
+        time.sleep(C.TV_REQUEST_DELAY)
     return out
 
 
