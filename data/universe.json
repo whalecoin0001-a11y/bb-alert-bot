@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-08-23T22:18:50.671748",
+  "built_at": "2026-08-30T22:20:49.030361",
   "items": [
     {
       "ticker": "KRX:005930",
@@ -22,13 +22,13 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:005380",
-      "name": "현대차",
+      "ticker": "KRX:373220",
+      "name": "LG에너지솔루션",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:373220",
-      "name": "LG에너지솔루션",
+      "ticker": "KRX:005380",
+      "name": "현대차",
       "group": "kospi200"
     },
     {
@@ -42,13 +42,13 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:028260",
-      "name": "삼성물산",
+      "ticker": "KRX:105560",
+      "name": "KB금융",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:105560",
-      "name": "KB금융",
+      "ticker": "KRX:028260",
+      "name": "삼성물산",
       "group": "kospi200"
     },
     {
@@ -57,8 +57,8 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:000270",
-      "name": "기아",
+      "ticker": "KRX:034020",
+      "name": "두산에너빌리티",
       "group": "kospi200"
     },
     {
@@ -67,18 +67,18 @@
       "group": "kospi200"
     },
     {
+      "ticker": "KRX:000270",
+      "name": "기아",
+      "group": "kospi200"
+    },
+    {
       "ticker": "KRX:329180",
       "name": "HD현대중공업",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:034020",
-      "name": "두산에너빌리티",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:012330",
-      "name": "현대모비스",
+      "ticker": "KRX:006400",
+      "name": "삼성SDI",
       "group": "kospi200"
     },
     {
@@ -87,13 +87,13 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:034730",
-      "name": "SK",
+      "ticker": "KRX:012330",
+      "name": "현대모비스",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:006400",
-      "name": "삼성SDI",
+      "ticker": "KRX:034730",
+      "name": "SK",
       "group": "kospi200"
     },
     {
@@ -112,13 +112,18 @@
       "group": "kospi200"
     },
     {
+      "ticker": "KRX:010120",
+      "name": "LS ELECTRIC",
+      "group": "kospi200"
+    },
+    {
       "ticker": "KRX:000810",
       "name": "삼성화재",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:010120",
-      "name": "LS ELECTRIC",
+      "ticker": "KRX:298040",
+      "name": "효성중공업",
       "group": "kospi200"
     },
     {
@@ -137,18 +142,13 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:298040",
-      "name": "효성중공업",
+      "ticker": "KRX:005490",
+      "name": "POSCO홀딩스",
       "group": "kospi200"
     },
     {
       "ticker": "KRX:009540",
       "name": "HD한국조선해양",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:005490",
-      "name": "POSCO홀딩스",
       "group": "kospi200"
     },
     {
@@ -162,8 +162,8 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:096770",
-      "name": "SK이노베이션",
+      "ticker": "KRX:042700",
+      "name": "한미반도체",
       "group": "kospi200"
     },
     {
@@ -177,38 +177,8 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:042700",
-      "name": "한미반도체",
-      "group": "kospi200"
-    },
-    {
       "ticker": "KRX:138040",
       "name": "메리츠금융지주",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:006800",
-      "name": "미래에셋증권",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:033780",
-      "name": "KT&G",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:051910",
-      "name": "LG화학",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:010140",
-      "name": "삼성중공업",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:018260",
-      "name": "삼성에스디에스",
       "group": "kospi200"
     },
     {
@@ -217,8 +187,33 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:267250",
-      "name": "HD현대",
+      "ticker": "KRX:096770",
+      "name": "SK이노베이션",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:006800",
+      "name": "미래에셋증권",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:051910",
+      "name": "LG화학",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:018260",
+      "name": "삼성에스디에스",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:010140",
+      "name": "삼성중공업",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:033780",
+      "name": "KT&G",
       "group": "kospi200"
     },
     {
@@ -227,13 +222,28 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:024110",
-      "name": "기업은행",
+      "ticker": "KRX:278470",
+      "name": "에이피알",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:267250",
+      "name": "HD현대",
       "group": "kospi200"
     },
     {
       "ticker": "KRX:010950",
       "name": "S-Oil",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:024110",
+      "name": "기업은행",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:003670",
+      "name": "포스코퓨처엠",
       "group": "kospi200"
     },
     {
@@ -252,18 +262,18 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:278470",
-      "name": "에이피알",
-      "group": "kospi200"
-    },
-    {
       "ticker": "KRX:064350",
       "name": "현대로템",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:003670",
-      "name": "포스코퓨처엠",
+      "ticker": "KRX:011070",
+      "name": "LG이노텍",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:000720",
+      "name": "현대건설",
       "group": "kospi200"
     },
     {
@@ -277,23 +287,8 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:011070",
-      "name": "LG이노텍",
-      "group": "kospi200"
-    },
-    {
       "ticker": "KRX:047810",
       "name": "한국항공우주",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:307950",
-      "name": "현대오토에버",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:000720",
-      "name": "현대건설",
       "group": "kospi200"
     },
     {
@@ -312,23 +307,13 @@
       "group": "kospi200"
     },
     {
+      "ticker": "KRX:307950",
+      "name": "현대오토에버",
+      "group": "kospi200"
+    },
+    {
       "ticker": "KRX:071050",
       "name": "한국금융지주",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:259960",
-      "name": "크래프톤",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:323410",
-      "name": "카카오뱅크",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:005940",
-      "name": "NH투자증권",
       "group": "kospi200"
     },
     {
@@ -337,13 +322,13 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:006260",
-      "name": "LS",
+      "ticker": "KRX:323410",
+      "name": "카카오뱅크",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:047050",
-      "name": "포스코인터내셔널",
+      "ticker": "KRX:259960",
+      "name": "크래프톤",
       "group": "kospi200"
     },
     {
@@ -352,18 +337,23 @@
       "group": "kospi200"
     },
     {
+      "ticker": "KRX:005940",
+      "name": "NH투자증권",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:006260",
+      "name": "LS",
+      "group": "kospi200"
+    },
+    {
       "ticker": "KRX:028050",
       "name": "삼성E&A",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:016360",
-      "name": "삼성증권",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:161390",
-      "name": "한국타이어앤테크놀로지",
+      "ticker": "KRX:047050",
+      "name": "포스코인터내셔널",
       "group": "kospi200"
     },
     {
@@ -382,6 +372,21 @@
       "group": "kospi200"
     },
     {
+      "ticker": "KRX:161390",
+      "name": "한국타이어앤테크놀로지",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:047040",
+      "name": "대우건설",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:016360",
+      "name": "삼성증권",
+      "group": "kospi200"
+    },
+    {
       "ticker": "KRX:352820",
       "name": "하이브",
       "group": "kospi200"
@@ -392,38 +397,13 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:039490",
-      "name": "키움증권",
-      "group": "kospi200"
-    },
-    {
       "ticker": "KRX:064400",
       "name": "LG씨엔에스",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:021240",
-      "name": "코웨이",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:000100",
-      "name": "유한양행",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:326030",
-      "name": "SK바이오팜",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:047040",
-      "name": "대우건설",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:032640",
-      "name": "LG유플러스",
+      "ticker": "KRX:039490",
+      "name": "키움증권",
       "group": "kospi200"
     },
     {
@@ -432,13 +412,13 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:377300",
-      "name": "카카오페이",
+      "ticker": "KRX:021240",
+      "name": "코웨이",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:241560",
-      "name": "두산밥캣",
+      "ticker": "KRX:326030",
+      "name": "SK바이오팜",
       "group": "kospi200"
     },
     {
@@ -447,18 +427,23 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:029780",
-      "name": "삼성카드",
-      "group": "kospi200"
-    },
-    {
       "ticker": "KRX:128940",
       "name": "한미약품",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:001440",
-      "name": "대한전선",
+      "ticker": "KRX:377300",
+      "name": "카카오페이",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:032640",
+      "name": "LG유플러스",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:000100",
+      "name": "유한양행",
       "group": "kospi200"
     },
     {
@@ -467,13 +452,33 @@
       "group": "kospi200"
     },
     {
+      "ticker": "KRX:241560",
+      "name": "두산밥캣",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:001440",
+      "name": "대한전선",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:066970",
+      "name": "엘앤에프",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:029780",
+      "name": "삼성카드",
+      "group": "kospi200"
+    },
+    {
       "ticker": "KRX:175330",
       "name": "JB금융지주",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:271560",
-      "name": "오리온",
+      "ticker": "KRX:088350",
+      "name": "한화생명",
       "group": "kospi200"
     },
     {
@@ -482,13 +487,13 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:036570",
-      "name": "NC",
+      "ticker": "KRX:271560",
+      "name": "오리온",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:088350",
-      "name": "한화생명",
+      "ticker": "KRX:036570",
+      "name": "NC",
       "group": "kospi200"
     },
     {
@@ -502,58 +507,8 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:454910",
-      "name": "두산로보틱스",
-      "group": "kospi200"
-    },
-    {
       "ticker": "KRX:138930",
       "name": "BNK금융지주",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:066970",
-      "name": "엘앤에프",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:001450",
-      "name": "현대해상",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:002380",
-      "name": "KCC",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:011790",
-      "name": "SKC",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:000990",
-      "name": "DB하이텍",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:004170",
-      "name": "신세계",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:082740",
-      "name": "한화엔진",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:004020",
-      "name": "현대제철",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:001040",
-      "name": "CJ",
       "group": "kospi200"
     },
     {
@@ -562,18 +517,43 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:018880",
-      "name": "한온시스템",
+      "ticker": "KRX:454910",
+      "name": "두산로보틱스",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:111770",
-      "name": "영원무역",
+      "ticker": "KRX:011790",
+      "name": "SKC",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:036460",
-      "name": "한국가스공사",
+      "ticker": "KRX:001450",
+      "name": "현대해상",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:004020",
+      "name": "현대제철",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:000990",
+      "name": "DB하이텍",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:002380",
+      "name": "KCC",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:082740",
+      "name": "한화엔진",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:004170",
+      "name": "신세계",
       "group": "kospi200"
     },
     {
@@ -582,13 +562,13 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:028670",
-      "name": "팬오션",
+      "ticker": "KRX:001040",
+      "name": "CJ",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:251270",
-      "name": "넷마블",
+      "ticker": "KRX:018880",
+      "name": "한온시스템",
       "group": "kospi200"
     },
     {
@@ -597,18 +577,8 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:008930",
-      "name": "한미사이언스",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:035250",
-      "name": "강원랜드",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:022100",
-      "name": "포스코DX",
+      "ticker": "KRX:036460",
+      "name": "한국가스공사",
       "group": "kospi200"
     },
     {
@@ -617,8 +587,13 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:011780",
-      "name": "금호석유화학",
+      "ticker": "KRX:111770",
+      "name": "영원무역",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:022100",
+      "name": "포스코DX",
       "group": "kospi200"
     },
     {
@@ -627,18 +602,38 @@
       "group": "kospi200"
     },
     {
+      "ticker": "KRX:011780",
+      "name": "금호석유화학",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:035250",
+      "name": "강원랜드",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:251270",
+      "name": "넷마블",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:028670",
+      "name": "팬오션",
+      "group": "kospi200"
+    },
+    {
       "ticker": "KRX:302440",
       "name": "SK바이오사이언스",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:017800",
-      "name": "현대엘리베이터",
+      "ticker": "KRX:008930",
+      "name": "한미사이언스",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:097950",
-      "name": "CJ제일제당",
+      "ticker": "KRX:017800",
+      "name": "현대엘리베이터",
       "group": "kospi200"
     },
     {
@@ -657,13 +652,13 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:375500",
-      "name": "DL이앤씨",
+      "ticker": "KRX:097950",
+      "name": "CJ제일제당",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:004370",
-      "name": "농심",
+      "ticker": "KRX:375500",
+      "name": "DL이앤씨",
       "group": "kospi200"
     },
     {
@@ -672,18 +667,8 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:026960",
-      "name": "동서",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:282330",
-      "name": "BGF리테일",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:005850",
-      "name": "에스엘",
+      "ticker": "KRX:004370",
+      "name": "농심",
       "group": "kospi200"
     },
     {
@@ -692,8 +677,8 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:204320",
-      "name": "HL만도",
+      "ticker": "KRX:026960",
+      "name": "동서",
       "group": "kospi200"
     },
     {
@@ -707,18 +692,13 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:004990",
-      "name": "롯데지주",
+      "ticker": "KRX:282330",
+      "name": "BGF리테일",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:081660",
-      "name": "미스토홀딩스",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:000240",
-      "name": "한국앤컴퍼니",
+      "ticker": "KRX:005850",
+      "name": "에스엘",
       "group": "kospi200"
     },
     {
@@ -727,18 +707,18 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:030000",
-      "name": "제일기획",
+      "ticker": "KRX:004990",
+      "name": "롯데지주",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:014680",
-      "name": "한솔케미칼",
+      "ticker": "KRX:204320",
+      "name": "HL만도",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:009970",
-      "name": "영원무역홀딩스",
+      "ticker": "KRX:000240",
+      "name": "한국앤컴퍼니",
       "group": "kospi200"
     },
     {
@@ -747,13 +727,23 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:073240",
-      "name": "금호타이어",
+      "ticker": "KRX:030000",
+      "name": "제일기획",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:069960",
-      "name": "현대백화점",
+      "ticker": "KRX:009970",
+      "name": "영원무역홀딩스",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:081660",
+      "name": "미스토홀딩스",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:014680",
+      "name": "한솔케미칼",
       "group": "kospi200"
     },
     {
@@ -762,18 +752,28 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:139480",
-      "name": "이마트",
-      "group": "kospi200"
-    },
-    {
       "ticker": "KRX:051600",
       "name": "한전KPS",
       "group": "kospi200"
     },
     {
+      "ticker": "KRX:073240",
+      "name": "금호타이어",
+      "group": "kospi200"
+    },
+    {
       "ticker": "KRX:112610",
       "name": "씨에스윈드",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:139480",
+      "name": "이마트",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:069960",
+      "name": "현대백화점",
       "group": "kospi200"
     },
     {
@@ -787,13 +787,18 @@
       "group": "kospi200"
     },
     {
+      "ticker": "KRX:006040",
+      "name": "동원산업",
+      "group": "kospi200"
+    },
+    {
       "ticker": "KRX:000120",
       "name": "CJ대한통운",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:006040",
-      "name": "동원산업",
+      "ticker": "KRX:120110",
+      "name": "코오롱인더",
       "group": "kospi200"
     },
     {
@@ -812,8 +817,8 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:120110",
-      "name": "코오롱인더",
+      "ticker": "KRX:001430",
+      "name": "세아베스틸지주",
       "group": "kospi200"
     },
     {
@@ -822,8 +827,8 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:001430",
-      "name": "세아베스틸지주",
+      "ticker": "KRX:298020",
+      "name": "효성티앤씨",
       "group": "kospi200"
     },
     {
@@ -832,8 +837,8 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:298020",
-      "name": "효성티앤씨",
+      "ticker": "KRX:361610",
+      "name": "SK아이이테크놀로지",
       "group": "kospi200"
     },
     {
@@ -842,18 +847,13 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:093370",
-      "name": "후성",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:192080",
-      "name": "더블유게임즈",
-      "group": "kospi200"
-    },
-    {
       "ticker": "KRX:280360",
       "name": "롯데웰푸드",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:093370",
+      "name": "후성",
       "group": "kospi200"
     },
     {
@@ -862,18 +862,18 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:300720",
-      "name": "한일시멘트",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:361610",
-      "name": "SK아이이테크놀로지",
+      "ticker": "KRX:192080",
+      "name": "더블유게임즈",
       "group": "kospi200"
     },
     {
       "ticker": "KRX:004000",
       "name": "롯데정밀화학",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:300720",
+      "name": "한일시멘트",
       "group": "kospi200"
     },
     {
@@ -887,13 +887,13 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:003240",
-      "name": "태광산업",
+      "ticker": "KRX:003090",
+      "name": "대웅",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:003090",
-      "name": "대웅",
+      "ticker": "KRX:003240",
+      "name": "태광산업",
       "group": "kospi200"
     },
     {
@@ -902,8 +902,8 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:005300",
-      "name": "롯데칠성",
+      "ticker": "KRX:285130",
+      "name": "SK케미칼",
       "group": "kospi200"
     },
     {
@@ -912,13 +912,13 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:285130",
-      "name": "SK케미칼",
+      "ticker": "KRX:034230",
+      "name": "파라다이스",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:034230",
-      "name": "파라다이스",
+      "ticker": "KRX:005300",
+      "name": "롯데칠성",
       "group": "kospi200"
     },
     {
@@ -932,11 +932,6 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:456040",
-      "name": "OCI",
-      "group": "kospi200"
-    },
-    {
       "ticker": "KRX:137310",
       "name": "에스디바이오센서",
       "group": "kospi200"
@@ -947,8 +942,8 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:268280",
-      "name": "미원에스씨",
+      "ticker": "KRX:456040",
+      "name": "OCI",
       "group": "kospi200"
     },
     {
@@ -957,13 +952,18 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:001680",
-      "name": "대상",
+      "ticker": "KRX:268280",
+      "name": "미원에스씨",
       "group": "kospi200"
     },
     {
       "ticker": "KRX:014820",
       "name": "동원시스템즈",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:001680",
+      "name": "대상",
       "group": "kospi200"
     },
     {
@@ -977,8 +977,8 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:003030",
-      "name": "세아제강지주",
+      "ticker": "KRX:002030",
+      "name": "아세아",
       "group": "kospi200"
     },
     {
@@ -987,13 +987,8 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:002030",
-      "name": "아세아",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:008730",
-      "name": "율촌화학",
+      "ticker": "KRX:003030",
+      "name": "세아제강지주",
       "group": "kospi200"
     },
     {
@@ -3512,198 +3507,8 @@
       "group": "coin"
     },
     {
-      "ticker": "BINANCE:BCHUSDT.P",
-      "name": "BCHUSDT",
-      "group": "coin"
-    },
-    {
       "ticker": "BINANCE:XRPUSDT.P",
       "name": "XRPUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:LTCUSDT.P",
-      "name": "LTCUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:TRXUSDT.P",
-      "name": "TRXUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ETCUSDT.P",
-      "name": "ETCUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:LINKUSDT.P",
-      "name": "LINKUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:XLMUSDT.P",
-      "name": "XLMUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ADAUSDT.P",
-      "name": "ADAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:XMRUSDT.P",
-      "name": "XMRUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:DASHUSDT.P",
-      "name": "DASHUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ZECUSDT.P",
-      "name": "ZECUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:XTZUSDT.P",
-      "name": "XTZUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BNBUSDT.P",
-      "name": "BNBUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ATOMUSDT.P",
-      "name": "ATOMUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ONTUSDT.P",
-      "name": "ONTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:IOTAUSDT.P",
-      "name": "IOTAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BATUSDT.P",
-      "name": "BATUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:VETUSDT.P",
-      "name": "VETUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:NEOUSDT.P",
-      "name": "NEOUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:QTUMUSDT.P",
-      "name": "QTUMUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:IOSTUSDT.P",
-      "name": "IOSTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:THETAUSDT.P",
-      "name": "THETAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ALGOUSDT.P",
-      "name": "ALGOUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ZILUSDT.P",
-      "name": "ZILUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:KNCUSDT.P",
-      "name": "KNCUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ZRXUSDT.P",
-      "name": "ZRXUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:COMPUSDT.P",
-      "name": "COMPUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:DOGEUSDT.P",
-      "name": "DOGEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:KAVAUSDT.P",
-      "name": "KAVAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BANDUSDT.P",
-      "name": "BANDUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:RLCUSDT.P",
-      "name": "RLCUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SNXUSDT.P",
-      "name": "SNXUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:DOTUSDT.P",
-      "name": "DOTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:YFIUSDT.P",
-      "name": "YFIUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:CRVUSDT.P",
-      "name": "CRVUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:TRBUSDT.P",
-      "name": "TRBUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:RUNEUSDT.P",
-      "name": "RUNEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SUSHIUSDT.P",
-      "name": "SUSHIUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:EGLDUSDT.P",
-      "name": "EGLDUSDT",
       "group": "coin"
     },
     {
@@ -3712,3268 +3517,8 @@
       "group": "coin"
     },
     {
-      "ticker": "BINANCE:ICXUSDT.P",
-      "name": "ICXUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:STORJUSDT.P",
-      "name": "STORJUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:UNIUSDT.P",
-      "name": "UNIUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:AVAXUSDT.P",
-      "name": "AVAXUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ENJUSDT.P",
-      "name": "ENJUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:KSMUSDT.P",
-      "name": "KSMUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:NEARUSDT.P",
-      "name": "NEARUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:AAVEUSDT.P",
-      "name": "AAVEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:FILUSDT.P",
-      "name": "FILUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:RSRUSDT.P",
-      "name": "RSRUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BELUSDT.P",
-      "name": "BELUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:AXSUSDT.P",
-      "name": "AXSUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ZENUSDT.P",
-      "name": "ZENUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SKLUSDT.P",
-      "name": "SKLUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:GRTUSDT.P",
-      "name": "GRTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:1INCHUSDT.P",
-      "name": "1INCHUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:CHZUSDT.P",
-      "name": "CHZUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SANDUSDT.P",
-      "name": "SANDUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ANKRUSDT.P",
-      "name": "ANKRUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:RVNUSDT.P",
-      "name": "RVNUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SFPUSDT.P",
-      "name": "SFPUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:COTIUSDT.P",
-      "name": "COTIUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:CHRUSDT.P",
-      "name": "CHRUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:MANAUSDT.P",
-      "name": "MANAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ALICEUSDT.P",
-      "name": "ALICEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:HBARUSDT.P",
-      "name": "HBARUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ONEUSDT.P",
-      "name": "ONEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:CELRUSDT.P",
-      "name": "CELRUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:HOTUSDT.P",
-      "name": "HOTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:MTLUSDT.P",
-      "name": "MTLUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:OGNUSDT.P",
-      "name": "OGNUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:1000SHIBUSDT.P",
-      "name": "1000SHIBUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:GTCUSDT.P",
-      "name": "GTCUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BTCDOMUSDT.P",
-      "name": "BTCDOMUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:IOTXUSDT.P",
-      "name": "IOTXUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:C98USDT.P",
-      "name": "C98USDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:MASKUSDT.P",
-      "name": "MASKUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:DYDXUSDT.P",
-      "name": "DYDXUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:1000XECUSDT.P",
-      "name": "1000XECUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:GALAUSDT.P",
-      "name": "GALAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:CELOUSDT.P",
-      "name": "CELOUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ARUSDT.P",
-      "name": "ARUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ARPAUSDT.P",
-      "name": "ARPAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:CTSIUSDT.P",
-      "name": "CTSIUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:LPTUSDT.P",
-      "name": "LPTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ENSUSDT.P",
-      "name": "ENSUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:PEOPLEUSDT.P",
-      "name": "PEOPLEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ROSEUSDT.P",
-      "name": "ROSEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:DUSKUSDT.P",
-      "name": "DUSKUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:FLOWUSDT.P",
-      "name": "FLOWUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:IMXUSDT.P",
-      "name": "IMXUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:API3USDT.P",
-      "name": "API3USDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:GMTUSDT.P",
-      "name": "GMTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:APEUSDT.P",
-      "name": "APEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:WOOUSDT.P",
-      "name": "WOOUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:JASMYUSDT.P",
-      "name": "JASMYUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:OPUSDT.P",
-      "name": "OPUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:INJUSDT.P",
-      "name": "INJUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:STGUSDT.P",
-      "name": "STGUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SPELLUSDT.P",
-      "name": "SPELLUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:1000LUNCUSDT.P",
-      "name": "1000LUNCUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:LUNA2USDT.P",
-      "name": "LUNA2USDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:LDOUSDT.P",
-      "name": "LDOUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ICPUSDT.P",
-      "name": "ICPUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:APTUSDT.P",
-      "name": "APTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:QNTUSDT.P",
-      "name": "QNTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:FETUSDT.P",
-      "name": "FETUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:MAGICUSDT.P",
-      "name": "MAGICUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:TUSDT.P",
-      "name": "TUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:MINAUSDT.P",
-      "name": "MINAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ASTRUSDT.P",
-      "name": "ASTRUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:GMXUSDT.P",
-      "name": "GMXUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:CFXUSDT.P",
-      "name": "CFXUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:STXUSDT.P",
-      "name": "STXUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ACHUSDT.P",
-      "name": "ACHUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SSVUSDT.P",
-      "name": "SSVUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:CKBUSDT.P",
-      "name": "CKBUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:LQTYUSDT.P",
-      "name": "LQTYUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:IDUSDT.P",
-      "name": "IDUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ARBUSDT.P",
-      "name": "ARBUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:JOEUSDT.P",
-      "name": "JOEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:TLMUSDT.P",
-      "name": "TLMUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:XVSUSDT.P",
-      "name": "XVSUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BLURUSDT.P",
-      "name": "BLURUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:EDUUSDT.P",
-      "name": "EDUUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SUIUSDT.P",
-      "name": "SUIUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:1000PEPEUSDT.P",
-      "name": "1000PEPEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:1000FLOKIUSDT.P",
-      "name": "1000FLOKIUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:UMAUSDT.P",
-      "name": "UMAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:NMRUSDT.P",
-      "name": "NMRUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:MAVUSDT.P",
-      "name": "MAVUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:XVGUSDT.P",
-      "name": "XVGUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:WLDUSDT.P",
-      "name": "WLDUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:PENDLEUSDT.P",
-      "name": "PENDLEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ARKMUSDT.P",
-      "name": "ARKMUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:AGLDUSDT.P",
-      "name": "AGLDUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:YGGUSDT.P",
-      "name": "YGGUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:DODOXUSDT.P",
-      "name": "DODOXUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BNTUSDT.P",
-      "name": "BNTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SEIUSDT.P",
-      "name": "SEIUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:CYBERUSDT.P",
-      "name": "CYBERUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ARKUSDT.P",
-      "name": "ARKUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BICOUSDT.P",
-      "name": "BICOUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BIGTIMEUSDT.P",
-      "name": "BIGTIMEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:WAXPUSDT.P",
-      "name": "WAXPUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BSVUSDT.P",
-      "name": "BSVUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:RIFUSDT.P",
-      "name": "RIFUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:POLYXUSDT.P",
-      "name": "POLYXUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:GASUSDT.P",
-      "name": "GASUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:POWRUSDT.P",
-      "name": "POWRUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:TIAUSDT.P",
-      "name": "TIAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:CAKEUSDT.P",
-      "name": "CAKEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:MEMEUSDT.P",
-      "name": "MEMEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:TWTUSDT.P",
-      "name": "TWTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ORDIUSDT.P",
-      "name": "ORDIUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:STEEMUSDT.P",
-      "name": "STEEMUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ILVUSDT.P",
-      "name": "ILVUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:KASUSDT.P",
-      "name": "KASUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BEAMXUSDT.P",
-      "name": "BEAMXUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:1000BONKUSDT.P",
-      "name": "1000BONKUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:PYTHUSDT.P",
-      "name": "PYTHUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SUPERUSDT.P",
-      "name": "SUPERUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:USTCUSDT.P",
-      "name": "USTCUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ONGUSDT.P",
-      "name": "ONGUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ETHWUSDT.P",
-      "name": "ETHWUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:JTOUSDT.P",
-      "name": "JTOUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:1000SATSUSDT.P",
-      "name": "1000SATSUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:AUCTIONUSDT.P",
-      "name": "AUCTIONUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:1000RATSUSDT.P",
-      "name": "1000RATSUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ACEUSDT.P",
-      "name": "ACEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:MOVRUSDT.P",
-      "name": "MOVRUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:XAIUSDT.P",
-      "name": "XAIUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:WIFUSDT.P",
-      "name": "WIFUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:MANTAUSDT.P",
-      "name": "MANTAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ONDOUSDT.P",
-      "name": "ONDOUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:LSKUSDT.P",
-      "name": "LSKUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ALTUSDT.P",
-      "name": "ALTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:JUPUSDT.P",
-      "name": "JUPUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ZETAUSDT.P",
-      "name": "ZETAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:RONINUSDT.P",
-      "name": "RONINUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:DYMUSDT.P",
-      "name": "DYMUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:PIXELUSDT.P",
-      "name": "PIXELUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:STRKUSDT.P",
-      "name": "STRKUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:GLMUSDT.P",
-      "name": "GLMUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:PORTALUSDT.P",
-      "name": "PORTALUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:AXLUSDT.P",
-      "name": "AXLUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:METISUSDT.P",
-      "name": "METISUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:AEVOUSDT.P",
-      "name": "AEVOUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BOMEUSDT.P",
-      "name": "BOMEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ETHFIUSDT.P",
-      "name": "ETHFIUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ENAUSDT.P",
-      "name": "ENAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:WUSDT.P",
-      "name": "WUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:TNSRUSDT.P",
-      "name": "TNSRUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SAGAUSDT.P",
-      "name": "SAGAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:TAOUSDT.P",
-      "name": "TAOUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:REZUSDT.P",
-      "name": "REZUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BBUSDT.P",
-      "name": "BBUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:NOTUSDT.P",
-      "name": "NOTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:TURBOUSDT.P",
-      "name": "TURBOUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:IOUSDT.P",
-      "name": "IOUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ZKUSDT.P",
-      "name": "ZKUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:MEWUSDT.P",
-      "name": "MEWUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:LISTAUSDT.P",
-      "name": "LISTAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ZROUSDT.P",
-      "name": "ZROUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:RENDERUSDT.P",
-      "name": "RENDERUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BANANAUSDT.P",
-      "name": "BANANAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:RAREUSDT.P",
-      "name": "RAREUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:GUSDT.P",
-      "name": "GUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SYNUSDT.P",
-      "name": "SYNUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BRETTUSDT.P",
-      "name": "BRETTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:POPCATUSDT.P",
-      "name": "POPCATUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SUNUSDT.P",
-      "name": "SUNUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:DOGSUSDT.P",
-      "name": "DOGSUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:FLUXUSDT.P",
-      "name": "FLUXUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:RPLUSDT.P",
-      "name": "RPLUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:POLUSDT.P",
-      "name": "POLUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:1MBABYDOGEUSDT.P",
-      "name": "1MBABYDOGEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:NEIROUSDT.P",
-      "name": "NEIROUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:FIDAUSDT.P",
-      "name": "FIDAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:CATIUSDT.P",
-      "name": "CATIUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:HMSTRUSDT.P",
-      "name": "HMSTRUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:EIGENUSDT.P",
-      "name": "EIGENUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:DIAUSDT.P",
-      "name": "DIAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:1000CATUSDT.P",
-      "name": "1000CATUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SCRUSDT.P",
-      "name": "SCRUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:GOATUSDT.P",
-      "name": "GOATUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:MOODENGUSDT.P",
-      "name": "MOODENGUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SAFEUSDT.P",
-      "name": "SAFEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SANTOSUSDT.P",
-      "name": "SANTOSUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:COWUSDT.P",
-      "name": "COWUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:CETUSUSDT.P",
-      "name": "CETUSUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:1000000MOGUSDT.P",
-      "name": "1000000MOGUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:GRASSUSDT.P",
-      "name": "GRASSUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:DRIFTUSDT.P",
-      "name": "DRIFTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ACTUSDT.P",
-      "name": "ACTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:PNUTUSDT.P",
-      "name": "PNUTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BANUSDT.P",
-      "name": "BANUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:AKTUSDT.P",
-      "name": "AKTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SCRTUSDT.P",
-      "name": "SCRTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:1000CHEEMSUSDT.P",
-      "name": "1000CHEEMSUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:THEUSDT.P",
-      "name": "THEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:MORPHOUSDT.P",
-      "name": "MORPHOUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:CHILLGUYUSDT.P",
-      "name": "CHILLGUYUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:KAIAUSDT.P",
-      "name": "KAIAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:AEROUSDT.P",
-      "name": "AEROUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ORCAUSDT.P",
-      "name": "ORCAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:MOVEUSDT.P",
-      "name": "MOVEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:RAYSOLUSDT.P",
-      "name": "RAYSOLUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:KOMAUSDT.P",
-      "name": "KOMAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:VIRTUALUSDT.P",
-      "name": "VIRTUALUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SPXUSDT.P",
-      "name": "SPXUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:MEUSDT.P",
-      "name": "MEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:AVAUSDT.P",
-      "name": "AVAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:VELODROMEUSDT.P",
-      "name": "VELODROMEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:MOCAUSDT.P",
-      "name": "MOCAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:VANAUSDT.P",
-      "name": "VANAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:PENGUUSDT.P",
-      "name": "PENGUUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:LUMIAUSDT.P",
-      "name": "LUMIAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:USUALUSDT.P",
-      "name": "USUALUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:AIXBTUSDT.P",
-      "name": "AIXBTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:FARTCOINUSDT.P",
-      "name": "FARTCOINUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:KMNOUSDT.P",
-      "name": "KMNOUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:CGPTUSDT.P",
-      "name": "CGPTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:HIVEUSDT.P",
-      "name": "HIVEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:DEXEUSDT.P",
-      "name": "DEXEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:PHAUSDT.P",
-      "name": "PHAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:GRIFFAINUSDT.P",
-      "name": "GRIFFAINUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ZEREBROUSDT.P",
-      "name": "ZEREBROUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BIOUSDT.P",
-      "name": "BIOUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:COOKIEUSDT.P",
-      "name": "COOKIEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ALCHUSDT.P",
-      "name": "ALCHUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SWARMSUSDT.P",
-      "name": "SWARMSUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SONICUSDT.P",
-      "name": "SONICUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:PROMUSDT.P",
-      "name": "PROMUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SUSDT.P",
-      "name": "SUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SOLVUSDT.P",
-      "name": "SOLVUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ARCUSDT.P",
-      "name": "ARCUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:AVAAIUSDT.P",
-      "name": "AVAAIUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:TRUMPUSDT.P",
-      "name": "TRUMPUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:MELANIAUSDT.P",
-      "name": "MELANIAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:VTHOUSDT.P",
-      "name": "VTHOUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ANIMEUSDT.P",
-      "name": "ANIMEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:PIPPINUSDT.P",
-      "name": "PIPPINUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:VVVUSDT.P",
-      "name": "VVVUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BERAUSDT.P",
-      "name": "BERAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:TSTUSDT.P",
-      "name": "TSTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:LAYERUSDT.P",
-      "name": "LAYERUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:HEIUSDT.P",
-      "name": "HEIUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:GPSUSDT.P",
-      "name": "GPSUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SHELLUSDT.P",
-      "name": "SHELLUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:KAITOUSDT.P",
-      "name": "KAITOUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:REDUSDT.P",
-      "name": "REDUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:EPICUSDT.P",
-      "name": "EPICUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BMTUSDT.P",
-      "name": "BMTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:MUBARAKUSDT.P",
-      "name": "MUBARAKUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:FORMUSDT.P",
-      "name": "FORMUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:TUTUSDT.P",
-      "name": "TUTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BROCCOLI714USDT.P",
-      "name": "BROCCOLI714USDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BROCCOLIF3BUSDT.P",
-      "name": "BROCCOLIF3BUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SIRENUSDT.P",
-      "name": "SIRENUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BANANAS31USDT.P",
-      "name": "BANANAS31USDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BRUSDT.P",
-      "name": "BRUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:PLUMEUSDT.P",
-      "name": "PLUMEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:NILUSDT.P",
-      "name": "NILUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:PARTIUSDT.P",
-      "name": "PARTIUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:JELLYJELLYUSDT.P",
-      "name": "JELLYJELLYUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:MAVIAUSDT.P",
-      "name": "MAVIAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:PAXGUSDT.P",
-      "name": "PAXGUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:WALUSDT.P",
-      "name": "WALUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:GUNUSDT.P",
-      "name": "GUNUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ATHUSDT.P",
-      "name": "ATHUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BABYUSDT.P",
-      "name": "BABYUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:PROMPTUSDT.P",
-      "name": "PROMPTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:STOUSDT.P",
-      "name": "STOUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:FHEUSDT.P",
-      "name": "FHEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:KERNELUSDT.P",
-      "name": "KERNELUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:WCTUSDT.P",
-      "name": "WCTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:INITUSDT.P",
-      "name": "INITUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BANKUSDT.P",
-      "name": "BANKUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:DEEPUSDT.P",
-      "name": "DEEPUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:HYPERUSDT.P",
-      "name": "HYPERUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:JSTUSDT.P",
-      "name": "JSTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SIGNUSDT.P",
-      "name": "SIGNUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:PUNDIXUSDT.P",
-      "name": "PUNDIXUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:CTKUSDT.P",
-      "name": "CTKUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:AIOTUSDT.P",
-      "name": "AIOTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:DOLOUSDT.P",
-      "name": "DOLOUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:HAEDALUSDT.P",
-      "name": "HAEDALUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SXTUSDT.P",
-      "name": "SXTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ASRUSDT.P",
-      "name": "ASRUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ALPINEUSDT.P",
-      "name": "ALPINEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:B2USDT.P",
-      "name": "B2USDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SYRUPUSDT.P",
-      "name": "SYRUPUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:DOODUSDT.P",
-      "name": "DOODUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:OGUSDT.P",
-      "name": "OGUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SKYAIUSDT.P",
-      "name": "SKYAIUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:NXPCUSDT.P",
-      "name": "NXPCUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:CVCUSDT.P",
-      "name": "CVCUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:AGTUSDT.P",
-      "name": "AGTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:AWEUSDT.P",
-      "name": "AWEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BUSDT.P",
-      "name": "BUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SOONUSDT.P",
-      "name": "SOONUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:HUMAUSDT.P",
-      "name": "HUMAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:AUSDT.P",
-      "name": "AUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SOPHUSDT.P",
-      "name": "SOPHUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:MERLUSDT.P",
-      "name": "MERLUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:HYPEUSDT.P",
-      "name": "HYPEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:1000000BOBUSDT.P",
-      "name": "1000000BOBUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:LAUSDT.P",
-      "name": "LAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:HOMEUSDT.P",
-      "name": "HOMEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:RESOLVUSDT.P",
-      "name": "RESOLVUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:TAIKOUSDT.P",
-      "name": "TAIKOUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SQDUSDT.P",
-      "name": "SQDUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:PUMPBTCUSDT.P",
-      "name": "PUMPBTCUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SPKUSDT.P",
-      "name": "SPKUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:MYXUSDT.P",
-      "name": "MYXUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:FUSDT.P",
-      "name": "FUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:NEWTUSDT.P",
-      "name": "NEWTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:HUSDT.P",
-      "name": "HUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SAHARAUSDT.P",
-      "name": "SAHARAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ICNTUSDT.P",
-      "name": "ICNTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BULLAUSDT.P",
-      "name": "BULLAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:IDOLUSDT.P",
-      "name": "IDOLUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:MUSDT.P",
-      "name": "MUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:PUMPUSDT.P",
-      "name": "PUMPUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:CROSSUSDT.P",
-      "name": "CROSSUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:AINUSDT.P",
-      "name": "AINUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:CUSDT.P",
-      "name": "CUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:VELVETUSDT.P",
-      "name": "VELVETUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:TACUSDT.P",
-      "name": "TACUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ERAUSDT.P",
-      "name": "ERAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:TAUSDT.P",
-      "name": "TAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:CVXUSDT.P",
-      "name": "CVXUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SLPUSDT.P",
-      "name": "SLPUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ZORAUSDT.P",
-      "name": "ZORAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:TAGUSDT.P",
-      "name": "TAGUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ESPORTSUSDT.P",
-      "name": "ESPORTSUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:TREEUSDT.P",
-      "name": "TREEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:PLAYUSDT.P",
-      "name": "PLAYUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:NAORISUSDT.P",
-      "name": "NAORISUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:TOWNSUSDT.P",
-      "name": "TOWNSUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:PROVEUSDT.P",
-      "name": "PROVEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ALLUSDT.P",
-      "name": "ALLUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:INUSDT.P",
-      "name": "INUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:CARVUSDT.P",
-      "name": "CARVUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:AIOUSDT.P",
-      "name": "AIOUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:XNYUSDT.P",
-      "name": "XNYUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:USELESSUSDT.P",
-      "name": "USELESSUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SAPIENUSDT.P",
-      "name": "SAPIENUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:XPLUSDT.P",
-      "name": "XPLUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:WLFIUSDT.P",
-      "name": "WLFIUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SOMIUSDT.P",
-      "name": "SOMIUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BASUSDT.P",
-      "name": "BASUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BTRUSDT.P",
-      "name": "BTRUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:MITOUSDT.P",
-      "name": "MITOUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:HEMIUSDT.P",
-      "name": "HEMIUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:LINEAUSDT.P",
-      "name": "LINEAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:QUSDT.P",
-      "name": "QUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ARIAUSDT.P",
-      "name": "ARIAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:TAKEUSDT.P",
-      "name": "TAKEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:PTBUSDT.P",
-      "name": "PTBUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:OPENUSDT.P",
-      "name": "OPENUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:FLOCKUSDT.P",
-      "name": "FLOCKUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SKYUSDT.P",
-      "name": "SKYUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:AVNTUSDT.P",
-      "name": "AVNTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:HOLOUSDT.P",
-      "name": "HOLOUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:XPINUSDT.P",
-      "name": "XPINUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:UBUSDT.P",
-      "name": "UBUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ZKCUSDT.P",
-      "name": "ZKCUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:TOSHIUSDT.P",
-      "name": "TOSHIUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:STBLUSDT.P",
-      "name": "STBLUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:0GUSDT.P",
-      "name": "0GUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BARDUSDT.P",
-      "name": "BARDUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ASTERUSDT.P",
-      "name": "ASTERUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:TRADOORUSDT.P",
-      "name": "TRADOORUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BLESSUSDT.P",
-      "name": "BLESSUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:FLUIDUSDT.P",
-      "name": "FLUIDUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:COAIUSDT.P",
-      "name": "COAIUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:HANAUSDT.P",
-      "name": "HANAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:MIRAUSDT.P",
-      "name": "MIRAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:AKEUSDT.P",
-      "name": "AKEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ORDERUSDT.P",
-      "name": "ORDERUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:LIGHTUSDT.P",
-      "name": "LIGHTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:XANUSDT.P",
-      "name": "XANUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:FFUSDT.P",
-      "name": "FFUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:EDENUSDT.P",
-      "name": "EDENUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:NOMUSDT.P",
-      "name": "NOMUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:TRUTHUSDT.P",
-      "name": "TRUTHUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:2ZUSDT.P",
-      "name": "2ZUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:EVAAUSDT.P",
-      "name": "EVAAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:LYNUSDT.P",
-      "name": "LYNUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:KGENUSDT.P",
-      "name": "KGENUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:4USDT.P",
-      "name": "4USDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:GIGGLEUSDT.P",
-      "name": "GIGGLEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:MONUSDT.P",
-      "name": "MONUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:YBUSDT.P",
-      "name": "YBUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:METUSDT.P",
-      "name": "METUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:EULUSDT.P",
-      "name": "EULUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ENSOUSDT.P",
-      "name": "ENSOUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:CLOUSDT.P",
-      "name": "CLOUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:RECALLUSDT.P",
-      "name": "RECALLUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ZBTUSDT.P",
-      "name": "ZBTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:LABUSDT.P",
-      "name": "LABUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:RIVERUSDT.P",
-      "name": "RIVERUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:币安人生USDT.P",
-      "name": "币安人生USDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BLUAIUSDT.P",
-      "name": "BLUAIUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:TURTLEUSDT.P",
-      "name": "TURTLEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:APRUSDT.P",
-      "name": "APRUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ONUSDT.P",
-      "name": "ONUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:KITEUSDT.P",
-      "name": "KITEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ATUSDT.P",
-      "name": "ATUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:CCUSDT.P",
-      "name": "CCUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:MMTUSDT.P",
-      "name": "MMTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:TRUSTUSDT.P",
-      "name": "TRUSTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:UAIUSDT.P",
-      "name": "UAIUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:FOLKSUSDT.P",
-      "name": "FOLKSUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:STABLEUSDT.P",
-      "name": "STABLEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:JCTUSDT.P",
-      "name": "JCTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ALLOUSDT.P",
-      "name": "ALLOUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:CLANKERUSDT.P",
-      "name": "CLANKERUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BEATUSDT.P",
-      "name": "BEATUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:PIEVERSEUSDT.P",
-      "name": "PIEVERSEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SENTUSDT.P",
-      "name": "SENTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:IRYSUSDT.P",
-      "name": "IRYSUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:POWERUSDT.P",
-      "name": "POWERUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:WETUSDT.P",
-      "name": "WETUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:NIGHTUSDT.P",
-      "name": "NIGHTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:XAUUSDT.P",
-      "name": "XAUUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:USUSDT.P",
-      "name": "USUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:CYSUSDT.P",
-      "name": "CYSUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:RAVEUSDT.P",
-      "name": "RAVEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ZKPUSDT.P",
-      "name": "ZKPUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:GUAUSDT.P",
-      "name": "GUAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:LITUSDT.P",
-      "name": "LITUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BREVUSDT.P",
-      "name": "BREVUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:COLLECTUSDT.P",
-      "name": "COLLECTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:MAGMAUSDT.P",
-      "name": "MAGMAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:XAGUSDT.P",
-      "name": "XAGUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ZAMAUSDT.P",
-      "name": "ZAMAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:FOGOUSDT.P",
-      "name": "FOGOUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:FRAXUSDT.P",
-      "name": "FRAXUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SPORTFUNUSDT.P",
-      "name": "SPORTFUNUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:AIAUSDT.P",
-      "name": "AIAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ACUUSDT.P",
-      "name": "ACUUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:我踏马来了USDT.P",
-      "name": "我踏马来了USDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ELSAUSDT.P",
-      "name": "ELSAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SKRUSDT.P",
-      "name": "SKRUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SPACEUSDT.P",
-      "name": "SPACEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:FIGHTUSDT.P",
-      "name": "FIGHTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:TSLAUSDT.P",
-      "name": "TSLAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BIRBUSDT.P",
-      "name": "BIRBUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:GWEIUSDT.P",
-      "name": "GWEIUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:XPTUSDT.P",
-      "name": "XPTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:XPDUSDT.P",
-      "name": "XPDUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:MEGAUSDT.P",
-      "name": "MEGAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:INXUSDT.P",
-      "name": "INXUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:INTCUSDT.P",
-      "name": "INTCUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:HOODUSDT.P",
-      "name": "HOODUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:TRIAUSDT.P",
-      "name": "TRIAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:MSTRUSDT.P",
-      "name": "MSTRUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:AMZNUSDT.P",
-      "name": "AMZNUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:CRCLUSDT.P",
-      "name": "CRCLUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:COINUSDT.P",
-      "name": "COINUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:PLTRUSDT.P",
-      "name": "PLTRUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ESPUSDT.P",
-      "name": "ESPUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:AZTECUSDT.P",
-      "name": "AZTECUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:OPNUSDT.P",
-      "name": "OPNUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ROBOUSDT.P",
-      "name": "ROBOUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:KATUSDT.P",
-      "name": "KATUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:MANTRAUSDT.P",
-      "name": "MANTRAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:COPPERUSDT.P",
-      "name": "COPPERUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:龙虾USDT.P",
-      "name": "龙虾USDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:EWYUSDT.P",
-      "name": "EWYUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:CFGUSDT.P",
-      "name": "CFGUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:EWJUSDT.P",
-      "name": "EWJUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:EDGEUSDT.P",
-      "name": "EDGEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:PAYPUSDT.P",
-      "name": "PAYPUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:METAUSDT.P",
-      "name": "METAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:NVDAUSDT.P",
-      "name": "NVDAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:GOOGLUSDT.P",
-      "name": "GOOGLUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BSBUSDT.P",
-      "name": "BSBUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:XAUTUSDT.P",
-      "name": "XAUTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BASEDUSDT.P",
-      "name": "BASEDUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:CLUSDT.P",
-      "name": "CLUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BZUSDT.P",
-      "name": "BZUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:NATGASUSDT.P",
-      "name": "NATGASUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:PRLUSDT.P",
-      "name": "PRLUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:QQQUSDT.P",
-      "name": "QQQUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SPYUSDT.P",
-      "name": "SPYUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:AAPLUSDT.P",
-      "name": "AAPLUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:TSMUSDT.P",
-      "name": "TSMUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:MUUSDT.P",
-      "name": "MUUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SNDKUSDT.P",
-      "name": "SNDKUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:GENIUSUSDT.P",
-      "name": "GENIUSUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:CHIPUSDT.P",
-      "name": "CHIPUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:MSFTUSDT.P",
-      "name": "MSFTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:AVGOUSDT.P",
-      "name": "AVGOUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BABAUSDT.P",
-      "name": "BABAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:OPGUSDT.P",
-      "name": "OPGUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:AIGENSYNUSDT.P",
-      "name": "AIGENSYNUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:AMDUSDT.P",
-      "name": "AMDUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:QCOMUSDT.P",
-      "name": "QCOMUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:USARUSDT.P",
-      "name": "USARUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BILLUSDT.P",
-      "name": "BILLUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:PHAROSUSDT.P",
-      "name": "PHAROSUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:STARUSDT.P",
-      "name": "STARUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:LITEUSDT.P",
-      "name": "LITEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ORCLUSDT.P",
-      "name": "ORCLUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:DISUSDT.P",
-      "name": "DISUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:UBERUSDT.P",
-      "name": "UBERUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:CSCOUSDT.P",
-      "name": "CSCOUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:HDUSDT.P",
-      "name": "HDUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SOXLUSDT.P",
-      "name": "SOXLUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:MRVLUSDT.P",
-      "name": "MRVLUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:CRWVUSDT.P",
-      "name": "CRWVUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:WMTUSDT.P",
-      "name": "WMTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:JPMUSDT.P",
-      "name": "JPMUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:VUSDT.P",
-      "name": "VUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BRKBUSDT.P",
-      "name": "BRKBUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:FLNCUSDT.P",
-      "name": "FLNCUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:DRAMUSDT.P",
-      "name": "DRAMUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:RKLBUSDT.P",
-      "name": "RKLBUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:CBRSUSDT.P",
-      "name": "CBRSUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SPCXUSDT.P",
-      "name": "SPCXUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:OPENAIUSDT.P",
-      "name": "OPENAIUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:NBISUSDT.P",
-      "name": "NBISUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:WDCUSDT.P",
-      "name": "WDCUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ARMUSDT.P",
-      "name": "ARMUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BEUSDT.P",
-      "name": "BEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:COHRUSDT.P",
-      "name": "COHRUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:CTRUSDT.P",
-      "name": "CTRUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:QNTXUSDT.P",
-      "name": "QNTXUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SLXUSDT.P",
-      "name": "SLXUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:LLYUSDT.P",
-      "name": "LLYUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:NVOUSDT.P",
-      "name": "NVOUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BBXUSDT.P",
-      "name": "BBXUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:NOKUSDT.P",
-      "name": "NOKUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:EWTUSDT.P",
-      "name": "EWTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ASTSUSDT.P",
-      "name": "ASTSUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SKHYNIXUSDT.P",
-      "name": "SKHYNIXUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SAMSUNGUSDT.P",
-      "name": "SAMSUNGUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:HYUNDAIUSDT.P",
-      "name": "HYUNDAIUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ANTHROPICUSDT.P",
-      "name": "ANTHROPICUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:DELLUSDT.P",
-      "name": "DELLUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:IBMUSDT.P",
-      "name": "IBMUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:NOWUSDT.P",
-      "name": "NOWUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:CRMUSDT.P",
-      "name": "CRMUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:IRENUSDT.P",
-      "name": "IRENUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ONDSUSDT.P",
-      "name": "ONDSUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ZESTUSDT.P",
-      "name": "ZESTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BTWUSDT.P",
-      "name": "BTWUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BXUSDT.P",
-      "name": "BXUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:HPEUSDT.P",
-      "name": "HPEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:AMATUSDT.P",
-      "name": "AMATUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:CRWDUSDT.P",
-      "name": "CRWDUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:CRDOUSDT.P",
-      "name": "CRDOUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:AAOIUSDT.P",
-      "name": "AAOIUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:IWMUSDT.P",
-      "name": "IWMUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:AXTIUSDT.P",
-      "name": "AXTIUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:NFLXUSDT.P",
-      "name": "NFLXUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:COSTUSDT.P",
-      "name": "COSTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:URNMUSDT.P",
-      "name": "URNMUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:HIMSUSDT.P",
-      "name": "HIMSUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:EBAYUSDT.P",
-      "name": "EBAYUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ZMUSDT.P",
-      "name": "ZMUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:DKNGUSDT.P",
-      "name": "DKNGUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:RIVNUSDT.P",
-      "name": "RIVNUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:GMEUSDT.P",
-      "name": "GMEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:XLEUSDT.P",
-      "name": "XLEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:EWZUSDT.P",
-      "name": "EWZUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BMNRUSDT.P",
-      "name": "BMNRUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:UVXYUSDT.P",
-      "name": "UVXYUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ADBEUSDT.P",
-      "name": "ADBEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:GLWUSDT.P",
-      "name": "GLWUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:STXXUSDT.P",
-      "name": "STXXUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ASMLUSDT.P",
-      "name": "ASMLUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:REUSDT.P",
-      "name": "REUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:LRCXUSDT.P",
-      "name": "LRCXUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:KLACUSDT.P",
-      "name": "KLACUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ALABUSDT.P",
-      "name": "ALABUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SMCIUSDT.P",
-      "name": "SMCIUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:CIENUSDT.P",
-      "name": "CIENUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:KORUUSDT.P",
-      "name": "KORUUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SONYUSDT.P",
-      "name": "SONYUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ARXUSDT.P",
-      "name": "ARXUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:MVLLUSDT.P",
-      "name": "MVLLUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:TQQQUSDT.P",
-      "name": "TQQQUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SQQQUSDT.P",
-      "name": "SQQQUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:OUSDT.P",
-      "name": "OUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:CAPUSDT.P",
-      "name": "CAPUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:GRAMUSDT.P",
-      "name": "GRAMUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:STRCUSDT.P",
-      "name": "STRCUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:CATUSDT.P",
-      "name": "CATUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:TXNUSDT.P",
-      "name": "TXNUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:FLEXUSDT.P",
-      "name": "FLEXUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:TERUSDT.P",
-      "name": "TERUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:TTWOUSDT.P",
-      "name": "TTWOUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:KSTRUSDT.P",
-      "name": "KSTRUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BSPUSDT.P",
-      "name": "BSPUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:DATAIPUSDT.P",
-      "name": "DATAIPUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BOTUSDT.P",
-      "name": "BOTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:WENUSDT.P",
-      "name": "WENUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:INTWUSDT.P",
-      "name": "INTWUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SNXXUSDT.P",
-      "name": "SNXXUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:XBIUSDT.P",
-      "name": "XBIUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BNCUSDT.P",
-      "name": "BNCUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:FWDIUSDT.P",
-      "name": "FWDIUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:GEVUSDT.P",
-      "name": "GEVUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:VRTUSDT.P",
-      "name": "VRTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SNOWUSDT.P",
-      "name": "SNOWUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:APPUSDT.P",
-      "name": "APPUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SKHYUSDT.P",
-      "name": "SKHYUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:MUUUSDT.P",
-      "name": "MUUUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SOXSUSDT.P",
-      "name": "SOXSUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:TZAUSDT.P",
-      "name": "TZAUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:MINIMAXUSDT.P",
-      "name": "MINIMAXUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ZHIPUUSDT.P",
-      "name": "ZHIPUUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:HK0700USDT.P",
-      "name": "HK0700USDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:HK1810USDT.P",
-      "name": "HK1810USDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:TENCENTUSDT.P",
-      "name": "TENCENTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SHAZUSDT.P",
-      "name": "SHAZUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SOFIUSDT.P",
-      "name": "SOFIUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:PANWUSDT.P",
-      "name": "PANWUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:PENGUSDT.P",
-      "name": "PENGUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:POPMARTUSDT.P",
-      "name": "POPMARTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:TMFUSDT.P",
-      "name": "TMFUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:TBTUSDT.P",
-      "name": "TBTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:BITOUSDT.P",
-      "name": "BITOUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:PYPLUSDT.P",
-      "name": "PYPLUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:GSUSDT.P",
-      "name": "GSUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SMHUSDT.P",
-      "name": "SMHUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:GRVTUSDT.P",
-      "name": "GRVTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:GIGADEVUSDT.P",
-      "name": "GIGADEVUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:KOUSDT.P",
-      "name": "KOUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:RDDTUSDT.P",
-      "name": "RDDTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:KUAISHOUUSDT.P",
-      "name": "KUAISHOUUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:MEITUANUSDT.P",
-      "name": "MEITUANUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:CSOPSKHYNIX2LUSDT.P",
-      "name": "CSOPSKHYNIX2LUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:CSOPSAMSUNG2LUSDT.P",
-      "name": "CSOPSAMSUNG2LUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:DOSUSDT.P",
-      "name": "DOSUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:ZHONGJIUSDT.P",
-      "name": "ZHONGJIUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SAMSUNGEMUSDT.P",
-      "name": "SAMSUNGEMUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:HANMIUSDT.P",
-      "name": "HANMIUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:LGELECTRONICSUSDT.P",
-      "name": "LGELECTRONICSUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:NAVERUSDT.P",
-      "name": "NAVERUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:KODEX200USDT.P",
-      "name": "KODEX200USDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:GDXUSDT.P",
-      "name": "GDXUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:NETUSDT.P",
-      "name": "NETUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:VSTUSDT.P",
-      "name": "VSTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:SHOPUSDT.P",
-      "name": "SHOPUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:LYTEUSDT.P",
-      "name": "LYTEUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:CXMTUSDT.P",
-      "name": "CXMTUSDT",
-      "group": "coin"
-    },
-    {
-      "ticker": "BINANCE:UNITREEUSDT.P",
-      "name": "UNITREEUSDT",
+      "ticker": "BINANCE:DOGEUSDT.P",
+      "name": "DOGEUSDT",
       "group": "coin"
     }
   ]
