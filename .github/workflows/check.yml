@@ -1,10 +1,10 @@
 name: BB Alert Check
 
 on:
-  schedule:
-    # 정각 기준 딱 떨어지는 시간(0,5,10...)은 전 세계 워크플로우가 몰려서 GitHub가
-    # 지연시키거나 건너뛰는 경우가 흔하다. 2분 오프셋을 줘서 혼잡을 피한다.
-    - cron: "2-59/5 * * * *"
+  # GitHub 자체 schedule 트리거는 신생 저장소에서 5분 간격을 못 지키고(실측 30분+
+  # 간격) 신뢰할 수 없어서 뺐다. 대신 cron-job.org가 5분마다 workflow_dispatch를
+  # 직접 호출한다. schedule을 같이 켜두면 가끔 두 트리거가 겹쳐서 실행이 충돌·
+  # 취소되는 경우가 실제로 있었다(2026-08-26 15:25 UTC 실행 참고).
   workflow_dispatch:
 
 concurrency:
