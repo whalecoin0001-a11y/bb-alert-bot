@@ -499,5 +499,8 @@
   "YUM": "NYSE:YUM",
   "ZBRA": "NASDAQ:ZBRA",
   "ZBH": "NYSE:ZBH",
-  "ZTS": "NYSE:ZTS"
+  "ZTS": "NYSE:ZTS",
+  "BE": "NYSE:BE",
+  "P": "NYSE:P",
+  "ILMN": "NASDAQ:ILMN"
 }
