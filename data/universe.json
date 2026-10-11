@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-10-04T22:40:45.160957",
+  "built_at": "2026-10-11T22:45:42.865815",
   "items": [
     {
       "ticker": "NYSE:MMM",
@@ -629,11 +629,6 @@
     {
       "ticker": "NYSE:CPAY",
       "name": "콜페이",
-      "group": "sp500"
-    },
-    {
-      "ticker": "NYSE:CTVA",
-      "name": "코르테바",
       "group": "sp500"
     },
     {
@@ -1782,11 +1777,6 @@
       "group": "sp500"
     },
     {
-      "ticker": "NASDAQ:PSKY",
-      "name": "파라마운트 스카이댄스",
-      "group": "sp500"
-    },
-    {
       "ticker": "NYSE:PH",
       "name": "파커-하니핀",
       "group": "sp500"
@@ -2052,6 +2042,11 @@
       "group": "sp500"
     },
     {
+      "ticker": "NYSE:SKYD",
+      "name": "Paramount Skydance Corp",
+      "group": "sp500"
+    },
+    {
       "ticker": "NASDAQ:SWKS",
       "name": "스카이웍스 솔루션스",
       "group": "sp500"
@@ -2247,6 +2242,11 @@
       "group": "sp500"
     },
     {
+      "ticker": "NYSE:TWLO",
+      "name": "트윌리오",
+      "group": "sp500"
+    },
+    {
       "ticker": "NYSE:TYL",
       "name": "타일러 테크놀로지스",
       "group": "sp500"
@@ -2382,6 +2382,11 @@
       "group": "sp500"
     },
     {
+      "ticker": "NYSE:VYLR",
+      "name": "Vylor Inc.",
+      "group": "sp500"
+    },
+    {
       "ticker": "NYSE:WRB",
       "name": "W. R. 버클리",
       "group": "sp500"
@@ -2404,11 +2409,6 @@
     {
       "ticker": "NYSE:DIS",
       "name": "월트 디즈니",
-      "group": "sp500"
-    },
-    {
-      "ticker": "NASDAQ:WBD",
-      "name": "워너 브로스 디스커버리",
       "group": "sp500"
     },
     {

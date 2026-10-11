@@ -502,5 +502,8 @@
   "ZTS": "NYSE:ZTS",
   "BE": "NYSE:BE",
   "P": "NYSE:P",
-  "ILMN": "NASDAQ:ILMN"
+  "ILMN": "NASDAQ:ILMN",
+  "SKYD": "NYSE:SKYD",
+  "TWLO": "NYSE:TWLO",
+  "VYLR": "NYSE:VYLR"
 }
