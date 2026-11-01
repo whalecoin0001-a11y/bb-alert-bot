@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-10-25T22:55:33.512330",
+  "built_at": "2026-11-01T23:01:07.764794",
   "items": [
     {
       "ticker": "NYSE:MMM",
@@ -1867,13 +1867,13 @@
       "group": "sp500"
     },
     {
-      "ticker": "NYSE:PEG",
-      "name": "퍼블릭 서비스 엔터프라이즈",
+      "ticker": "NASDAQ:PTC",
+      "name": "PTC",
       "group": "sp500"
     },
     {
-      "ticker": "NASDAQ:PTC",
-      "name": "PTC",
+      "ticker": "NYSE:PEG",
+      "name": "퍼블릭 서비스 엔터프라이즈",
       "group": "sp500"
     },
     {
@@ -1887,8 +1887,8 @@
       "group": "sp500"
     },
     {
-      "ticker": "NYSE:PWR",
-      "name": "콴타 서비스",
+      "ticker": "NYSE:Q",
+      "name": "큐니티 일렉트로닉스",
       "group": "sp500"
     },
     {
@@ -1897,13 +1897,13 @@
       "group": "sp500"
     },
     {
-      "ticker": "NYSE:DGX",
-      "name": "퀘스트 다이아그노스틱스",
+      "ticker": "NYSE:PWR",
+      "name": "콴타 서비스",
       "group": "sp500"
     },
     {
-      "ticker": "NYSE:Q",
-      "name": "큐니티 일렉트로닉스",
+      "ticker": "NYSE:DGX",
+      "name": "퀘스트 다이아그노스틱스",
       "group": "sp500"
     },
     {
@@ -1919,11 +1919,6 @@
     {
       "ticker": "NYSE:RDDT",
       "name": "레딧",
-      "group": "sp500"
-    },
-    {
-      "ticker": "NYSE:RTX",
-      "name": "RTX",
       "group": "sp500"
     },
     {
@@ -1989,6 +1984,11 @@
     {
       "ticker": "NYSE:RCL",
       "name": "로얄 캐리비안 크루즈",
+      "group": "sp500"
+    },
+    {
+      "ticker": "NYSE:RTX",
+      "name": "RTX",
       "group": "sp500"
     },
     {
