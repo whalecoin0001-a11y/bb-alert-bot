@@ -7,7 +7,6 @@ config.UNIVERSE_CACHE_DAYS 이내면 재사용한다.
 from __future__ import annotations
 
 import io
-import re
 import time
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -39,25 +38,27 @@ def log(msg: str) -> None:
 
 # ---------------------------------------------------------------- 코스피200
 def fetch_kospi200() -> list[dict]:
-    """네이버 금융 코스피200 구성종목 페이지를 훑어 종목코드를 모은다.
+    """코스피 시가총액 상위 200개 보통주 — 코스피200 근사치.
 
-    공식 문서 없는 페이지 스크래핑이지만, 지수 구성종목은 리밸런싱 때만 바뀌므로
-    (기본 주 1회 캐시) 요청 빈도가 매우 낮아 차단 위험이 작다.
+    네이버 구성종목 페이지(entryJongmok)가 410으로 폐지되고 KRX 데이터는 로그인이
+    필요해져, 구성종목을 직접 받을 무료 경로가 사라졌다. 코스피200은 시총 상위 위주라
+    네이버 시총순 목록(공개 JSON)의 상위 200개 보통주(종목코드 끝자리 0, 우선주 제외)로 대체한다.
     """
-    log("코스피200 구성종목 수집…")
-    seen: dict[str, str] = {}       # code -> 종목명
-    pattern = re.compile(r'code=(\d{6})"[^>]*>([^<]+)</a>')
-    for page in range(1, 21):
+    log("코스피 시총 상위 200 수집…")
+    out: list[dict] = []
+    for page in range(1, 6):
         try:
-            r = _SESSION.get("https://finance.naver.com/sise/entryJongmok.naver",
-                             params={"type": "KPI200", "page": page}, timeout=C.REQUEST_TIMEOUT)
-            r.encoding = "euc-kr"
-            for code, name in pattern.findall(r.text):
-                seen.setdefault(code, name)
+            r = _SESSION.get("https://m.stock.naver.com/api/stocks/marketValue/KOSPI",
+                             params={"page": page, "pageSize": 100}, timeout=C.REQUEST_TIMEOUT)
+            r.raise_for_status()
+            for s in r.json()["stocks"]:
+                if s["itemCode"].endswith("0") and len(out) < 200:
+                    out.append({"ticker": f"KRX:{s['itemCode']}", "name": s["stockName"], "group": "kospi200"})
         except Exception as e:                            # noqa: BLE001
             log(f"  ! {page}페이지 실패: {e}")
+        if len(out) >= 200:
+            break
         time.sleep(0.15)
-    out = [{"ticker": f"KRX:{c}", "name": n, "group": "kospi200"} for c, n in seen.items()]
     log(f"  → {len(out)}종목")
     return out
 
@@ -163,6 +164,12 @@ def build_universe(force: bool = False) -> list[dict]:
         items += fetch_sp500()
     items += fetch_all_perpetuals()
 
+    # 한 그룹이라도 비었거나 코인이 폴백(5개)이면 캐시하지 않는다 — 그러면 7일간 그
+    # 종목군이 통째로 빠진 채 굳는다(코스피200 사고). 다음 실행에서 재시도.
+    n = {g: sum(1 for i in items if i["group"] == g) for g in ("kospi200", "sp500", "coin")}
+    if (C.INCLUDE_KOSPI200 and n["kospi200"] < 100) or (C.INCLUDE_SP500 and n["sp500"] < 400) or n["coin"] < 50:
+        log(f"  ! 종목 수집 불완전({n}) — 캐시 저장 안 함")
+        return items
     write_json(CACHE_PATH, {"built_at": datetime.now().isoformat(), "items": items}, indent=2)
     log(f"감시 종목 총 {len(items)}개 저장 → {CACHE_PATH.name}")
     return items
