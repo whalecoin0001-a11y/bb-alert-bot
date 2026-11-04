@@ -299,6 +299,14 @@ def run(refresh: bool = False) -> None:
     for it in items:
         by_group.setdefault(it["group"], []).append(it)
 
+    # 데이터 소스가 조용히 죽는 걸 잡는 감시: 종목 목록이 비정상적으로 적거나 시세 조회가
+    # 대량 실패하면 run() 끝에서 예외를 던진다 → send_error_once가 1회 알리고, 정상화될
+    # 때까지 clear_error_state가 안 불려 반복 알림 없음(코스피200이 며칠간 빠졌던 사고 방지).
+    degraded: list[str] = []
+    for g, minimum in C.MIN_UNIVERSE.items():
+        if len(by_group.get(g, [])) < minimum:
+            degraded.append(f"{GROUPS[g]['label']} 종목 목록 {len(by_group.get(g, []))}개")
+
     for group, group_items in by_group.items():
         market = GROUPS[group]["market"]
         tickers = [it["ticker"] for it in group_items]
@@ -306,6 +314,8 @@ def run(refresh: bool = False) -> None:
         label = GROUPS[group]["label"]
         log(f"{label} {len(tickers)}종목 조회 중…")
         bb = TV.fetch_bb(tickers, market)
+        if len(bb) < len(tickers) * 0.8:
+            degraded.append(f"{label} 시세 {len(bb)}/{len(tickers)}")
 
         kind = GROUPS[group]["kind"]
         kind_cat = "coin" if kind == "coin" else "stock"
@@ -379,6 +389,14 @@ def run(refresh: bool = False) -> None:
     }
     if is_first_run:
         log(f"[개별알림] 최초 실행 — 기준선 {len(touch_info)}건 저장, 알림 생략")
+    # 한 번에 몰리는 건 시장 이벤트가 아니라 종목 목록 변경·상태 유실 같은 시스템 쪽
+    # 사건이다(실제로 종목 목록을 다시 만들자 157건이 한꺼번에 나갔다). 개별 전송은
+    # 건너뛰고 한 줄 요약만 보낸다 — 대시보드와 상태 기록은 그대로 갱신된다.
+    if len(new_touches) > C.MAX_ALERT_BURST:
+        TG.send(f"⚠️ 신규 근접 알림 {len(new_touches)}건이 한꺼번에 발생해 개별 전송을 생략했습니다"
+                f"(종목 목록 변경 등). 대시보드를 확인하세요.", parse_mode=None)
+        log(f"[개별알림] {len(new_touches)}건 폭주 — 개별 전송 생략")
+        new_touches = set()
     for key in sorted(new_touches):
         kind, name, zone = touch_info[key]
         text = touch_alert_text(kind, name, zone)
@@ -418,6 +436,8 @@ def run(refresh: bool = False) -> None:
         label = ZONE_TITLE[zone]
         log(f"[{label}] {text.replace(chr(10), ' | ')[:200]}")
         publish(zone, label, text, state)
+    if degraded:
+        raise RuntimeError("데이터 소스 이상: " + ", ".join(degraded))
     TG.clear_error_state()
 
 
