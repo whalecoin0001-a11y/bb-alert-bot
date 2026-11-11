@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-11-04T09:21:30.058378",
+  "built_at": "2026-11-11T16:35:36.201444",
   "items": [
     {
       "ticker": "KRX:005930",
@@ -17,13 +17,13 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:009150",
-      "name": "삼성전기",
+      "ticker": "KRX:373220",
+      "name": "LG에너지솔루션",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:373220",
-      "name": "LG에너지솔루션",
+      "ticker": "KRX:009150",
+      "name": "삼성전기",
       "group": "kospi200"
     },
     {
@@ -47,13 +47,13 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:028260",
-      "name": "삼성물산",
+      "ticker": "KRX:068270",
+      "name": "셀트리온",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:068270",
-      "name": "셀트리온",
+      "ticker": "KRX:028260",
+      "name": "삼성물산",
       "group": "kospi200"
     },
     {
@@ -67,8 +67,8 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:012450",
-      "name": "한화에어로스페이스",
+      "ticker": "KRX:000270",
+      "name": "기아",
       "group": "kospi200"
     },
     {
@@ -77,13 +77,8 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:000270",
-      "name": "기아",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:034020",
-      "name": "두산에너빌리티",
+      "ticker": "KRX:012450",
+      "name": "한화에어로스페이스",
       "group": "kospi200"
     },
     {
@@ -97,6 +92,16 @@
       "group": "kospi200"
     },
     {
+      "ticker": "KRX:034020",
+      "name": "두산에너빌리티",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:035420",
+      "name": "NAVER",
+      "group": "kospi200"
+    },
+    {
       "ticker": "KRX:329180",
       "name": "HD현대중공업",
       "group": "kospi200"
@@ -107,23 +112,8 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:035420",
-      "name": "NAVER",
-      "group": "kospi200"
-    },
-    {
       "ticker": "KRX:066570",
       "name": "LG전자",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:010120",
-      "name": "LS ELECTRIC",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:069500",
-      "name": "KODEX 200",
       "group": "kospi200"
     },
     {
@@ -132,18 +122,13 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:138040",
-      "name": "메리츠금융지주",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:011200",
-      "name": "HMM",
-      "group": "kospi200"
-    },
-    {
       "ticker": "KRX:005490",
       "name": "POSCO홀딩스",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:069500",
+      "name": "KODEX 200",
       "group": "kospi200"
     },
     {
@@ -152,18 +137,8 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:096770",
-      "name": "SK이노베이션",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:033780",
-      "name": "KT&G",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:298040",
-      "name": "효성중공업",
+      "ticker": "KRX:138040",
+      "name": "메리츠금융지주",
       "group": "kospi200"
     },
     {
@@ -172,13 +147,38 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:009540",
-      "name": "HD한국조선해양",
+      "ticker": "KRX:010130",
+      "name": "고려아연",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:010130",
-      "name": "고려아연",
+      "ticker": "KRX:011200",
+      "name": "HMM",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:096770",
+      "name": "SK이노베이션",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:010120",
+      "name": "LS ELECTRIC",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:033780",
+      "name": "KT&G",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:018260",
+      "name": "삼성에스디에스",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:017670",
+      "name": "SK텔레콤",
       "group": "kospi200"
     },
     {
@@ -192,28 +192,18 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:042660",
-      "name": "한화오션",
+      "ticker": "KRX:009540",
+      "name": "HD한국조선해양",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:017670",
-      "name": "SK텔레콤",
+      "ticker": "KRX:298040",
+      "name": "효성중공업",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:267260",
-      "name": "HD현대일렉트릭",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:018260",
-      "name": "삼성에스디에스",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:010140",
-      "name": "삼성중공업",
+      "ticker": "KRX:003670",
+      "name": "포스코퓨처엠",
       "group": "kospi200"
     },
     {
@@ -227,23 +217,18 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:003670",
-      "name": "포스코퓨처엠",
+      "ticker": "KRX:042660",
+      "name": "한화오션",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:003550",
-      "name": "LG",
+      "ticker": "KRX:267260",
+      "name": "HD현대일렉트릭",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:006800",
-      "name": "미래에셋증권",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:010950",
-      "name": "S-Oil",
+      "ticker": "KRX:010140",
+      "name": "삼성중공업",
       "group": "kospi200"
     },
     {
@@ -252,33 +237,8 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:028050",
-      "name": "삼성E&A",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:000150",
-      "name": "두산",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:488770",
-      "name": "KODEX 머니마켓액티브",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:272210",
-      "name": "한화시스템",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:030200",
-      "name": "KT",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:005830",
-      "name": "DB손해보험",
+      "ticker": "KRX:003550",
+      "name": "LG",
       "group": "kospi200"
     },
     {
@@ -287,18 +247,48 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:133690",
-      "name": "TIGER 미국나스닥100",
+      "ticker": "KRX:028050",
+      "name": "삼성E&A",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:267250",
-      "name": "HD현대",
+      "ticker": "KRX:030200",
+      "name": "KT",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:006800",
+      "name": "미래에셋증권",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:488770",
+      "name": "KODEX 머니마켓액티브",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:010950",
+      "name": "S-Oil",
       "group": "kospi200"
     },
     {
       "ticker": "KRX:003490",
       "name": "대한항공",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:133690",
+      "name": "TIGER 미국나스닥100",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:005830",
+      "name": "DB손해보험",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:272210",
+      "name": "한화시스템",
       "group": "kospi200"
     },
     {
@@ -312,8 +302,13 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:000720",
-      "name": "현대건설",
+      "ticker": "KRX:267250",
+      "name": "HD현대",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:000150",
+      "name": "두산",
       "group": "kospi200"
     },
     {
@@ -322,8 +317,18 @@
       "group": "kospi200"
     },
     {
+      "ticker": "KRX:003230",
+      "name": "삼양식품",
+      "group": "kospi200"
+    },
+    {
       "ticker": "KRX:379810",
       "name": "KODEX 미국나스닥100",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:000720",
+      "name": "현대건설",
       "group": "kospi200"
     },
     {
@@ -332,8 +337,8 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:079550",
-      "name": "LIG디펜스앤에어로스페이스",
+      "ticker": "KRX:047050",
+      "name": "포스코인터내셔널",
       "group": "kospi200"
     },
     {
@@ -342,18 +347,18 @@
       "group": "kospi200"
     },
     {
+      "ticker": "KRX:0126Z0",
+      "name": "삼성에피스홀딩스",
+      "group": "kospi200"
+    },
+    {
       "ticker": "KRX:102110",
       "name": "TIGER 200",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:047050",
-      "name": "포스코인터내셔널",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:003230",
-      "name": "삼양식품",
+      "ticker": "KRX:079550",
+      "name": "LIG디펜스앤에어로스페이스",
       "group": "kospi200"
     },
     {
@@ -367,53 +372,8 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:071050",
-      "name": "한국금융지주",
-      "group": "kospi200"
-    },
-    {
       "ticker": "KRX:307950",
       "name": "현대오토에버",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:396500",
-      "name": "TIGER 반도체TOP10",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:0126Z0",
-      "name": "삼성에피스홀딩스",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:443060",
-      "name": "HD현대마린솔루션",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:090430",
-      "name": "아모레퍼시픽",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:011070",
-      "name": "LG이노텍",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:064400",
-      "name": "LG씨엔에스",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:000500",
-      "name": "가온전선",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:021240",
-      "name": "코웨이",
       "group": "kospi200"
     },
     {
@@ -422,43 +382,38 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:016360",
-      "name": "삼성증권",
-      "group": "kospi200"
-    },
-    {
       "ticker": "KRX:161390",
       "name": "한국타이어앤테크놀로지",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:459580",
-      "name": "KODEX CD금리액티브(합성)",
+      "ticker": "KRX:064400",
+      "name": "LG씨엔에스",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:006260",
-      "name": "LS",
+      "ticker": "KRX:090430",
+      "name": "아모레퍼시픽",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:278530",
-      "name": "KODEX 200TR",
+      "ticker": "KRX:396500",
+      "name": "TIGER 반도체TOP10",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:352820",
-      "name": "하이브",
+      "ticker": "KRX:443060",
+      "name": "HD현대마린솔루션",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:032640",
-      "name": "LG유플러스",
+      "ticker": "KRX:021240",
+      "name": "코웨이",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:007660",
-      "name": "이수페타시스",
+      "ticker": "KRX:011070",
+      "name": "LG이노텍",
       "group": "kospi200"
     },
     {
@@ -467,23 +422,33 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:000100",
-      "name": "유한양행",
+      "ticker": "KRX:071050",
+      "name": "한국금융지주",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:498400",
-      "name": "KODEX 200타겟위클리커버드콜",
+      "ticker": "KRX:459580",
+      "name": "KODEX CD금리액티브(합성)",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:009830",
-      "name": "한화솔루션",
+      "ticker": "KRX:032640",
+      "name": "LG유플러스",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:039490",
-      "name": "키움증권",
+      "ticker": "KRX:000500",
+      "name": "가온전선",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:016360",
+      "name": "삼성증권",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:352820",
+      "name": "하이브",
       "group": "kospi200"
     },
     {
@@ -492,23 +457,33 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:353200",
-      "name": "대덕전자",
+      "ticker": "KRX:007660",
+      "name": "이수페타시스",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:381180",
-      "name": "TIGER 미국필라델피아반도체나스닥",
+      "ticker": "KRX:278530",
+      "name": "KODEX 200TR",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:000880",
-      "name": "한화",
+      "ticker": "KRX:006260",
+      "name": "LS",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:029780",
-      "name": "삼성카드",
+      "ticker": "KRX:000100",
+      "name": "유한양행",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:009830",
+      "name": "한화솔루션",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:498400",
+      "name": "KODEX 200타겟위클리커버드콜",
       "group": "kospi200"
     },
     {
@@ -517,8 +492,13 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:122630",
-      "name": "KODEX 레버리지",
+      "ticker": "KRX:039490",
+      "name": "키움증권",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:381180",
+      "name": "TIGER 미국필라델피아반도체나스닥",
       "group": "kospi200"
     },
     {
@@ -527,13 +507,13 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:458730",
-      "name": "TIGER 미국배당다우존스",
+      "ticker": "KRX:047040",
+      "name": "대우건설",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:271560",
-      "name": "오리온",
+      "ticker": "KRX:029780",
+      "name": "삼성카드",
       "group": "kospi200"
     },
     {
@@ -542,33 +522,13 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:062040",
-      "name": "산일전기",
+      "ticker": "KRX:458730",
+      "name": "TIGER 미국배당다우존스",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:091160",
-      "name": "KODEX 반도체",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:0167A0",
-      "name": "SOL AI반도체TOP2플러스",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:047040",
-      "name": "대우건설",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:000990",
-      "name": "DB하이텍",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:036570",
-      "name": "NC",
+      "ticker": "KRX:353200",
+      "name": "대덕전자",
       "group": "kospi200"
     },
     {
@@ -577,13 +537,8 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:138930",
-      "name": "BNK금융지주",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:229200",
-      "name": "KODEX 코스닥150",
+      "ticker": "KRX:036570",
+      "name": "NC",
       "group": "kospi200"
     },
     {
@@ -592,23 +547,58 @@
       "group": "kospi200"
     },
     {
+      "ticker": "KRX:271560",
+      "name": "오리온",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:122630",
+      "name": "KODEX 레버리지",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:091160",
+      "name": "KODEX 반도체",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:000990",
+      "name": "DB하이텍",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:000880",
+      "name": "한화",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:229200",
+      "name": "KODEX 코스닥150",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:0167A0",
+      "name": "SOL AI반도체TOP2플러스",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:062040",
+      "name": "산일전기",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:138930",
+      "name": "BNK금융지주",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:010060",
+      "name": "OCI홀딩스",
+      "group": "kospi200"
+    },
+    {
       "ticker": "KRX:360200",
       "name": "ACE 미국S&P500",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:001440",
-      "name": "대한전선",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:148020",
-      "name": "RISE 200",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:357870",
-      "name": "TIGER CD금리투자KIS(합성)",
       "group": "kospi200"
     },
     {
@@ -617,53 +607,8 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:310970",
-      "name": "TIGER MSCI Korea TR",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:0162Z0",
-      "name": "RISE 삼성전자SK하이닉스채권혼합50",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:012750",
-      "name": "에스원",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:001450",
-      "name": "현대해상",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:0043B0",
-      "name": "TIGER 머니마켓액티브",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:034220",
-      "name": "LG디스플레이",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:381170",
-      "name": "TIGER 미국테크TOP10 INDXX",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:002380",
-      "name": "KCC",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:051900",
-      "name": "LG생활건강",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:411060",
-      "name": "ACE KRX금현물",
+      "ticker": "KRX:357870",
+      "name": "TIGER CD금리투자KIS(합성)",
       "group": "kospi200"
     },
     {
@@ -672,13 +617,53 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:088350",
-      "name": "한화생명",
+      "ticker": "KRX:0043B0",
+      "name": "TIGER 머니마켓액티브",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:018880",
-      "name": "한온시스템",
+      "ticker": "KRX:012750",
+      "name": "에스원",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:001440",
+      "name": "대한전선",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:008930",
+      "name": "한미사이언스",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:034220",
+      "name": "LG디스플레이",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:411060",
+      "name": "ACE KRX금현물",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:148020",
+      "name": "RISE 200",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:0162Z0",
+      "name": "RISE 삼성전자SK하이닉스채권혼합50",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:381170",
+      "name": "TIGER 미국테크TOP10 INDXX",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:310970",
+      "name": "TIGER MSCI Korea TR",
       "group": "kospi200"
     },
     {
@@ -692,18 +677,18 @@
       "group": "kospi200"
     },
     {
+      "ticker": "KRX:088350",
+      "name": "한화생명",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:051900",
+      "name": "LG생활건강",
+      "group": "kospi200"
+    },
+    {
       "ticker": "KRX:036460",
       "name": "한국가스공사",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:010060",
-      "name": "OCI홀딩스",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:395160",
-      "name": "KODEX AI반도체TOP2플러스",
       "group": "kospi200"
     },
     {
@@ -712,13 +697,33 @@
       "group": "kospi200"
     },
     {
+      "ticker": "KRX:367380",
+      "name": "ACE 미국나스닥100",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:455890",
+      "name": "RISE 머니마켓액티브",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:022100",
+      "name": "포스코DX",
+      "group": "kospi200"
+    },
+    {
       "ticker": "KRX:001040",
       "name": "CJ",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:367380",
-      "name": "ACE 미국나스닥100",
+      "ticker": "KRX:001450",
+      "name": "현대해상",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:002380",
+      "name": "KCC",
       "group": "kospi200"
     },
     {
@@ -727,18 +732,28 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:052690",
-      "name": "한전기술",
+      "ticker": "KRX:018880",
+      "name": "한온시스템",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:008930",
-      "name": "한미사이언스",
+      "ticker": "KRX:111770",
+      "name": "영원무역",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:455890",
-      "name": "RISE 머니마켓액티브",
+      "ticker": "KRX:302440",
+      "name": "SK바이오사이언스",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:395160",
+      "name": "KODEX AI반도체TOP2플러스",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:233740",
+      "name": "KODEX 코스닥150레버리지",
       "group": "kospi200"
     },
     {
@@ -752,88 +767,13 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:028670",
-      "name": "팬오션",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:111770",
-      "name": "영원무역",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:022100",
-      "name": "포스코DX",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:102780",
-      "name": "KODEX 삼성그룹",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:395270",
-      "name": "HANARO Fn K-반도체",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:251270",
-      "name": "넷마블",
-      "group": "kospi200"
-    },
-    {
       "ticker": "KRX:192820",
       "name": "코스맥스",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:026960",
-      "name": "동서",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:017800",
-      "name": "현대엘리베이터",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:161890",
-      "name": "한국콜마",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:097950",
-      "name": "CJ제일제당",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:082740",
-      "name": "한화엔진",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:011780",
-      "name": "금호석유화학",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:103590",
-      "name": "일진전기",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:481050",
-      "name": "KODEX CD1년금리플러스액티브(합성)",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:472150",
-      "name": "TIGER 배당커버드콜액티브",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:302440",
-      "name": "SK바이오사이언스",
+      "ticker": "KRX:052690",
+      "name": "한전기술",
       "group": "kospi200"
     },
     {
@@ -842,53 +782,38 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:233740",
-      "name": "KODEX 코스닥150레버리지",
+      "ticker": "KRX:251270",
+      "name": "넷마블",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:023530",
-      "name": "롯데쇼핑",
+      "ticker": "KRX:026960",
+      "name": "동서",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:282330",
-      "name": "BGF리테일",
+      "ticker": "KRX:481050",
+      "name": "KODEX CD1년금리플러스액티브(합성)",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:486290",
-      "name": "TIGER 미국나스닥100타겟데일리커버드콜",
+      "ticker": "KRX:028670",
+      "name": "팬오션",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:003690",
-      "name": "코리안리",
+      "ticker": "KRX:102780",
+      "name": "KODEX 삼성그룹",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:139130",
-      "name": "iM금융지주",
+      "ticker": "KRX:097950",
+      "name": "CJ제일제당",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:004170",
-      "name": "신세계",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:489790",
-      "name": "한화비전",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:004370",
-      "name": "농심",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:383220",
-      "name": "F&F",
+      "ticker": "KRX:017800",
+      "name": "현대엘리베이터",
       "group": "kospi200"
     },
     {
@@ -897,8 +822,63 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:487240",
-      "name": "KODEX AI전력핵심설비",
+      "ticker": "KRX:181710",
+      "name": "NHN",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:009420",
+      "name": "한올바이오파마",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:395270",
+      "name": "HANARO Fn K-반도체",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:486290",
+      "name": "TIGER 미국나스닥100타겟데일리커버드콜",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:103590",
+      "name": "일진전기",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:161890",
+      "name": "한국콜마",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:011780",
+      "name": "금호석유화학",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:139130",
+      "name": "iM금융지주",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:472150",
+      "name": "TIGER 배당커버드콜액티브",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:282330",
+      "name": "BGF리테일",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:004370",
+      "name": "농심",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:003690",
+      "name": "코리안리",
       "group": "kospi200"
     },
     {
@@ -907,23 +887,43 @@
       "group": "kospi200"
     },
     {
+      "ticker": "KRX:082740",
+      "name": "한화엔진",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:004170",
+      "name": "신세계",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:383220",
+      "name": "F&F",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:489790",
+      "name": "한화비전",
+      "group": "kospi200"
+    },
+    {
       "ticker": "KRX:449170",
       "name": "TIGER KOFR금리액티브(합성)",
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:385540",
-      "name": "RISE 종합채권(A-이상)액티브",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:014680",
-      "name": "한솔케미칼",
+      "ticker": "KRX:023530",
+      "name": "롯데쇼핑",
       "group": "kospi200"
     },
     {
       "ticker": "KRX:018670",
       "name": "SK가스",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:385540",
+      "name": "RISE 종합채권(A-이상)액티브",
       "group": "kospi200"
     },
     {
@@ -937,26 +937,6 @@
       "group": "kospi200"
     },
     {
-      "ticker": "KRX:000240",
-      "name": "한국앤컴퍼니",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:161510",
-      "name": "PLUS 고배당주",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:004800",
-      "name": "효성",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:426030",
-      "name": "TIME 미국나스닥100액티브",
-      "group": "kospi200"
-    },
-    {
       "ticker": "KRX:009970",
       "name": "영원무역홀딩스",
       "group": "kospi200"
@@ -967,38 +947,58 @@
       "group": "kospi200"
     },
     {
+      "ticker": "KRX:161510",
+      "name": "PLUS 고배당주",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:375500",
+      "name": "DL이앤씨",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:089860",
+      "name": "롯데렌탈",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:007810",
+      "name": "코리아써키트",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:000240",
+      "name": "한국앤컴퍼니",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:426030",
+      "name": "TIME 미국나스닥100액티브",
+      "group": "kospi200"
+    },
+    {
       "ticker": "KRX:279570",
       "name": "케이뱅크",
       "group": "kospi200"
     },
     {
+      "ticker": "KRX:004800",
+      "name": "효성",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:112610",
+      "name": "씨에스윈드",
+      "group": "kospi200"
+    },
+    {
+      "ticker": "KRX:487240",
+      "name": "KODEX AI전력핵심설비",
+      "group": "kospi200"
+    },
+    {
       "ticker": "KRX:011170",
       "name": "롯데케미칼",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:005440",
-      "name": "현대지에프홀딩스",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:139260",
-      "name": "TIGER 200 IT",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:139260",
-      "name": "TIGER 200 IT",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:020150",
-      "name": "롯데에너지머티리얼즈",
-      "group": "kospi200"
-    },
-    {
-      "ticker": "KRX:002790",
-      "name": "아모레퍼시픽홀딩스",
       "group": "kospi200"
     },
     {
@@ -2337,11 +2337,6 @@
       "group": "sp500"
     },
     {
-      "ticker": "NYSE:KVUE",
-      "name": "켄뷰",
-      "group": "sp500"
-    },
-    {
       "ticker": "NASDAQ:KDP",
       "name": "큐리그 닥터 페퍼",
       "group": "sp500"
@@ -2724,6 +2719,11 @@
     {
       "ticker": "NYSE:OXY",
       "name": "옥시덴털 페트롤리움",
+      "group": "sp500"
+    },
+    {
+      "ticker": "NASDAQ:OKTA",
+      "name": "옥타",
       "group": "sp500"
     },
     {
